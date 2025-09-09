@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import avatar from '@/assets/avatar.jpg'
 
 import config from '@/config/configs'
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
+import starDraw from '@/lottie/starDraw.lottie'
 
 
 // 个人信息数据
@@ -60,6 +62,21 @@ const personalInfo = ref(config.personalInfo)
         <div class="avatar-decoration"></div>
       </div>
     </div>
+
+    <dot-lottie-vue 
+      :src="starDraw"
+      :loop="true"
+      :autoplay="true"
+      :animationSpeed="1"
+      :style="{
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        zIndex: '-1',
+      }"
+    />
   </div>
 </template>
 
