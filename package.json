@@ -1,0 +1,24 @@
+{
+  "name": "cainsu-blog-workspace",
+  "version": "1.0.0",
+  "description": "Cainsu Blog Workspace",
+  "private": true,
+  "workspaces": [
+    "blog"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "lint": "cd blog && pnpm run lint",
+    "format": "cd blog && pnpm run format",
+    "dev": "cd blog && pnpm run dev",
+    "build": "cd blog && pnpm run build"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
