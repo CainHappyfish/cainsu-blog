@@ -137,7 +137,7 @@ onMounted(() => {
 /* 标题区域 */
 .header {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
 }
 
 .title {
