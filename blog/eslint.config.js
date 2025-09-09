@@ -1,8 +1,6 @@
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 import parserVue from 'vue-eslint-parser'
-import configPrettier from 'eslint-config-prettier'
-import pluginPrettier from 'eslint-plugin-prettier'
 import parserTypeScript from '@typescript-eslint/parser'
 import pluginTypeScript from '@typescript-eslint/eslint-plugin'
 
@@ -19,6 +17,22 @@ export default [
         parser: parserTypeScript,
         ecmaVersion: 'latest',
         sourceType: 'module'
+      },
+      globals: {
+        console: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        MouseEvent: 'readonly',
+        Event: 'readonly',
+        HTMLElement: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearTimeout: 'readonly',
+        clearInterval: 'readonly',
+        HTMLLinkElement: 'readonly'
       }
     },
     plugins: {
@@ -37,6 +51,22 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module'
+      },
+      globals: {
+        console: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        MouseEvent: 'readonly',
+        Event: 'readonly',
+        HTMLElement: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearTimeout: 'readonly',
+        clearInterval: 'readonly',
+        HTMLLinkElement: 'readonly'
       }
     },
     plugins: {
@@ -44,15 +74,6 @@ export default [
     },
     rules: {
       ...pluginTypeScript.configs.recommended.rules
-    }
-  },
-  {
-    plugins: {
-      prettier: pluginPrettier
-    },
-    rules: {
-      ...configPrettier.rules,
-      'prettier/prettier': 'error'
     }
   }
 ]

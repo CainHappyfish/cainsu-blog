@@ -117,16 +117,3 @@ git commit -m "fix: 修复分页组件显示问题"
 git commit -m "docs: 更新README文档"
 ```
 
-### VSCode推荐扩展
-
-项目已配置推荐扩展，首次打开时VSCode会提示安装：
-- Vue Language Features (Volar)
-- Prettier - Code formatter
-- ESLint
-
-### 自动化检查
-
-- **保存时**: 自动运行Prettier格式化和ESLint修复
-- **提交前**: 自动运行代码检查，不通过则无法提交
-- **提交时**: 验证提交信息格式，不符合规范则拒绝提交
-- lint-staged
