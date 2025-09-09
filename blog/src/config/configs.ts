@@ -114,7 +114,6 @@ const config = {
       'おちてく過去は鮮明で',
       '大好きな歌 約束の歌 永遠の歌，大切な歌 青春の歌 始まりの歌',
       'Popipa pipopa popipapapipopa! '
-
     ],
     // 弹幕滑过时间配置（秒）
     duration: {

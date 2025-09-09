@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import {isMobile} from '@/utils/tools'
+
 import HomeNavigation from '@/components/HomeNavigation.vue'
 import HomeIntroduction from '@/components/HomeIntroduction.vue'
 import Introduction from '@/components/Introduction.vue'
@@ -27,7 +29,7 @@ const currentIntroductionComponent = computed(() => {
   <div class="home-page">
     <div class="home-introduction-container">
       <!-- 导航栏 -->
-      <HomeNavigation ref="homeNavigationRef" />
+      <HomeNavigation ref="homeNavigationRef" v-if="!isMobile()"/>
       <!-- 动态Introduction组件 -->
       <component :is="currentIntroductionComponent" />
     </div>
