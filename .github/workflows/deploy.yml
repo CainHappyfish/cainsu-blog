@@ -52,8 +52,8 @@ jobs:
         publish_dir: ./blog/dist
         cname: blog.cainsu.site
         
-  - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-files
-          path: blog/dist/
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: blog/dist/
