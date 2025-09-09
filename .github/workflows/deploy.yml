@@ -18,34 +18,18 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: latest
-        run_install: false
-        
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-        
-    - name: Setup pnpm cache
-      uses: actions/cache@v3
-      with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+        cache: 'npm'
+        cache-dependency-path: 'blog/package-lock.json'
         
     - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-        
-    - name: Install blog dependencies
-      run: cd blog && pnpm install --frozen-lockfile
+      run: |
+        cd blog
+        npm ci
         
     - name: Build project
-      run: pnpm run build
+      run: |
+        cd blog
+        npm run build
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
@@ -53,7 +37,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./blog/dist
-        cname: blog.cainsu.site
         
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
