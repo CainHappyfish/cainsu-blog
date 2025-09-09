@@ -3,6 +3,7 @@ import NavigationBar from '@/components/NavigationBar.vue'
 import GlobalLoading from '@/components/GlobalLoading.vue'
 import { useRoute } from 'vue-router'
 import { globalLoading } from '@/composables/useGlobalLoading'
+import { isMobile } from './utils/tools'
 
 const route = useRoute()
 const { loadingState } = globalLoading
@@ -11,7 +12,7 @@ const { loadingState } = globalLoading
 <template>
   <div id="app">
     <!-- 导航栏 -->
-    <NavigationBar v-if="route.path !== '/'" />
+    <NavigationBar v-if="route.path !== '/' || isMobile()" />
 
     <!-- 主要内容区域 -->
     <main class="main-content">
@@ -19,7 +20,7 @@ const { loadingState } = globalLoading
     </main>
 
     <!-- 页脚 -->
-    <footer class="footer">
+    <footer class="footer" v-if="route.path !== '/'">
       <div class="footer-content">
         <p>&copy; 2024 C4iN's Blog | 破酥的个人博客. All rights reserved.</p>
       </div>

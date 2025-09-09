@@ -291,7 +291,7 @@ checkSystemTheme()
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 3px);
 }
 
 .hamburger.active span:nth-child(2) {

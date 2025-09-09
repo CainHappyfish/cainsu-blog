@@ -1,14 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import avatar from '@/assets/avatar.jpg'
-
 import config from '@/config/configs'
-import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
-import starDraw from '@/lottie/starDraw.lottie'
-
 
 // 个人信息数据
 const personalInfo = ref(config.personalInfo)
+
+// 打字机效果相关
+const displayedDescription = ref('')
+const isTyping = ref(false)
+
+// 打字机效果实现
+const typewriterEffect = () => {
+  const fullText = personalInfo.value.description
+  let currentIndex = 0
+  isTyping.value = true
+  
+  const typeInterval = setInterval(() => {
+    if (currentIndex < fullText.length) {
+      displayedDescription.value += fullText[currentIndex]
+      currentIndex++
+    } else {
+      clearInterval(typeInterval)
+      isTyping.value = false
+    }
+  }, 50) // 每50ms显示一个字符
+}
+
+onMounted(() => {
+  // 延迟启动打字机效果
+  nextTick(() => {
+    typewriterEffect()
+  })
+})
+
 </script>
 
 <template>
@@ -18,7 +43,10 @@ const personalInfo = ref(config.personalInfo)
       <div class="info-content">
         <h1 class="name">{{ personalInfo.name }}</h1>
         <h2 class="job-title">{{ personalInfo.title }}</h2>
-        <p class="description">{{ personalInfo.description }}</p>
+        <p class="description">
+          {{ displayedDescription }}
+          <span v-if="isTyping" class="typing-cursor">|</span>
+        </p>
         
         <!-- 技术栈 -->
         <div class="skills">
@@ -62,21 +90,7 @@ const personalInfo = ref(config.personalInfo)
         <div class="avatar-decoration"></div>
       </div>
     </div>
-
-    <dot-lottie-vue 
-      :src="starDraw"
-      :loop="true"
-      :autoplay="true"
-      :animationSpeed="1"
-      :style="{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        zIndex: '-1',
-      }"
-    />
+  
   </div>
 </template>
 
@@ -88,7 +102,7 @@ const personalInfo = ref(config.personalInfo)
   gap: 80px;
   min-height: 70vh;
   padding: var(--spacing-lg);
-  width: 1200px;
+  width: min(1200px, 90%);
   margin: 0 auto;
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
@@ -98,6 +112,7 @@ const personalInfo = ref(config.personalInfo)
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
 }
 
 .home-introduction::before {
@@ -175,6 +190,21 @@ const personalInfo = ref(config.personalInfo)
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
   white-space: pre-line;
+}
+
+.typing-cursor {
+  animation: blink 1s infinite;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
 /* 技能标签 */
@@ -383,6 +413,7 @@ const personalInfo = ref(config.personalInfo)
     gap: var(--spacing-md);
     min-height: 60vh;
     padding: var(--spacing-md);
+    width: 90%;
     max-width: 600px;
   }
   
@@ -401,7 +432,10 @@ const personalInfo = ref(config.personalInfo)
   .home-introduction {
     padding: var(--spacing-sm);
     gap: var(--spacing-sm);
-    max-width: 500px;
+    width: calc(100% - 20px);
+    max-width: 100%;
+    margin: 10px 10px 5px 10px;
+    min-height: auto;
   }
   
   .avatar-section {
@@ -411,37 +445,46 @@ const personalInfo = ref(config.personalInfo)
   }
   
   .name {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 1.3;
   }
   
   .job-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
   }
   
   .avatar {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
   
   .description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
   }
   
   .skills {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .skills h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
   }
   
   .skill-tags {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xs);
     max-width: 100%;
     justify-items: center;
   }
   
   .skill-tag {
-    padding: 6px 8px;
-    font-size: 0.8rem;
+    padding: 4px 6px;
+    font-size: 0.75rem;
     white-space: nowrap;
     width: 100%;
     text-align: center;
@@ -454,6 +497,55 @@ const personalInfo = ref(config.personalInfo)
   .skill-tag:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contact h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .contact-links {
+    gap: var(--spacing-xs);
+  }
+  
+  .contact-link {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 480px) {
+  .home-introduction {
+    padding: var(--spacing-xs);
+    margin: 8px 8px 4px 8px;
+    width: calc(100% - 16px);
+  }
+  
+  .name {
+    font-size: 1.5rem;
+  }
+  
+  .job-title {
+    font-size: 0.9rem;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+  }
+  
+  .skill-tags {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-tag {
+    font-size: 0.7rem;
+    padding: 3px 5px;
   }
 }
 </style>
