@@ -102,7 +102,8 @@ onMounted(() => {
   gap: 80px;
   min-height: 70vh;
   padding: var(--spacing-lg);
-  width: min(1200px, 90%);
+  width: calc(100% - 20px);  
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
