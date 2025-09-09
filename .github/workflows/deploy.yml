@@ -41,7 +41,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd blog
-        pnpm install --frozen-lockfile
+        pnpm install --no-frozen-lockfile
         
     - name: Build project
       run: |
