@@ -2,13 +2,6 @@
 
 // 博客配置对象
 const config = {
-  // 网站元信息配置
-  // 这里没有实现配置化
-  siteInfo: {
-    title: 'C4iN\'s Blog | 破酥的个人博客',
-    icon: 'blog\\src\\assets\\avatar.jpg',  
-  },
-
   // 个人信息配置
   personalInfo: {
     name: '破酥',

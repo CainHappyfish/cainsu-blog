@@ -2,16 +2,17 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
-import config from './config/configs'
+// import config from './config/configs'
 
-// 动态设置页面title和favicon
-document.title = config.siteInfo.title
+// // 动态设置页面title和favicon
+// todo
+// document.title = config.siteInfo.title
 
-// 设置favicon
-const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement
-if (favicon) {
-  favicon.href = config.siteInfo.icon
-}
+// // 设置favicon
+// const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement
+// if (favicon) {
+//   favicon.href = config.siteInfo.icon
+// }
 
 const app = createApp(App)
 app.use(router)
