@@ -56,6 +56,58 @@ const config = {
     ]
   },
 
+  // 博客摘要配置
+  blogsSummary: {
+    title: '精选文章',
+    subtitle: '最新技术分享与思考',
+    blogs: [
+      {
+        id: 1,
+        title: 'Vue 3 Composition API 深度解析',
+        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
+        link: '/blog/vue3-composition-api',
+        summary: '深入探讨 Vue 3 Composition API 的设计理念、核心特性以及在实际项目中的应用技巧，帮助开发者更好地理解和使用这一强大的功能。',
+        category: '前端技术',
+        publishDate: '2024-01-15',
+        readTime: '8 分钟',
+        isMain: true
+      },
+      {
+        id: 2,
+        title: 'TypeScript 进阶技巧',
+        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
+        link: '/blog/typescript-advanced',
+        summary: '分享 TypeScript 的高级类型系统、泛型编程以及在大型项目中的最佳实践。',
+        category: '编程语言',
+        publishDate: '2024-01-10',
+        readTime: '6 分钟',
+        isMain: false
+      },
+      {
+        id: 3,
+        title: '现代前端工程化实践',
+        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
+        link: '/blog/frontend-engineering',
+        summary: '从构建工具到部署流程，全面介绍现代前端工程化的核心概念和实践方法。',
+        category: '工程化',
+        publishDate: '2024-01-05',
+        readTime: '10 分钟',
+        isMain: false
+      },
+      {
+        id: 4,
+        title: 'CSS Grid 布局完全指南',
+        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
+        link: '/blog/css-grid-guide',
+        summary: '详细介绍 CSS Grid 布局的各种属性和使用场景，助你掌握现代网页布局技术。',
+        category: 'CSS',
+        publishDate: '2024-01-01',
+        readTime: '7 分钟',
+        isMain: false
+      }
+    ]
+  },
+
   // 弹幕配置
   danmaku: {
     // 默认弹幕内容

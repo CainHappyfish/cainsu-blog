@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import HomeNavigation from '@/components/HomeNavigation.vue'
 import HomeIntroduction from '@/components/HomeIntroduction.vue'
-import Introduction from '@/components/BlogsIntroduction.vue'
+import Introduction from '@/components/Introduction.vue'
 import Danmaku from '@/components/Danmaku.vue'
 
 // 获取导航组件的引用
@@ -50,17 +50,18 @@ const currentIntroductionComponent = computed(() => {
 }
 
 .home-introduction-container {
-  width: calc(100% - 20px);
-  height: calc(100vh - 20px);
+  width: 100%;
+  min-height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-  margin: 10px;
+  overflow-y: auto;
+  padding: var(--spacing-lg, 20px) 0;
 }
 
 /* 移动端调整 */
@@ -69,11 +70,20 @@ const currentIntroductionComponent = computed(() => {
     justify-content: flex-start;
     padding-top: 20px;
   }
+  
+  .home-introduction-container {
+    justify-content: flex-start;
+    padding: var(--spacing-md, 16px) 0;
+  }
 }
 
 @media (max-width: 480px) {
   .home-page {
     padding-top: 10px;
+  }
+  
+  .home-introduction-container {
+    padding: var(--spacing-sm, 12px) 0;
   }
 }
 

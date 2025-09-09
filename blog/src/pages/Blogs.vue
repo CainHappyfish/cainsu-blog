@@ -1,24 +1,28 @@
 <script setup lang="ts">
-import HomeIntroduction from '@/components/HomeIntroduction.vue'
 </script>
 
 <template>
-  <div class="about-page">
-    <HomeIntroduction />
+  <div class="blogs-page">
+    <h1>🚧 施工中</h1>
   </div>
 </template>
 
 <style scoped>
-.about-page {
-  padding: 20px;
+.blogs-page {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;
 }
 
-.about-page h1 {
+.blogs-page h1 {
   color: #2c3e50;
   margin-bottom: 20px;
 }
 
-.about-page button {
+.blogs-page button {
   padding: 10px 20px;
   background-color: #3498db;
   color: white;
@@ -27,11 +31,11 @@ import HomeIntroduction from '@/components/HomeIntroduction.vue'
   cursor: pointer;
 }
 
-.about-page button:hover {
+.blogs-page button:hover {
   background-color: #2980b9;
 }
 
-.about-page button:disabled {
+.blogs-page button:disabled {
   background-color: #bdc3c7;
   cursor: not-allowed;
 }

@@ -63,8 +63,7 @@ onMounted(() => {
   align-items: center;
   min-height: 70vh;
   padding: var(--spacing-lg);
-  width: min(1200px, 90%);
-  margin: 0 auto;
+  width: 100%;
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   backdrop-filter: blur(20px);

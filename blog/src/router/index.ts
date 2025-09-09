@@ -28,6 +28,14 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/blogs',
+    name: 'Blogs',
+    component: () => import('@/pages/Blogs.vue'),
+    meta: {
+      title: '博客列表'
+    }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/pages/NotFound.vue'),

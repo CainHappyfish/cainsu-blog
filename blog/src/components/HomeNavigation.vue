@@ -78,7 +78,8 @@ defineExpose({
 <style scoped>
 .navbar-menu {
   display: flex;
-  width: min(1200px, 90%);  
+  width: calc(100% - 20px);  
+  max-width: 1200px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--bg-primary);
