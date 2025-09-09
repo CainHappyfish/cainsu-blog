@@ -40,7 +40,7 @@ const config = {
   blogsIntroduction: {
     title: 'Blogs',
     subtitle: '技术分享与思考',
-    description: '在这里记录我的技术学习历程、项目经验和对技术的思考。希望这些内容能够对你有所帮助。当然还有一些碎碎念',
+    description: '（博客施工中）在这里记录我的技术学习历程、项目经验和对技术的思考。希望这些内容能够对你有所帮助。当然还有一些碎碎念',
     features: [
       '前端技术分享',
       '项目实战经验',
@@ -110,7 +110,11 @@ const config = {
       '代码创造未来 🚀',
       '学习永无止境 📚',
       '保持好奇心 🤔',
-      'Talk is cheap, show me the code 💻'
+      'Talk is cheap, show me the code 💻',
+      'おちてく過去は鮮明で',
+      '大好きな歌 約束の歌 永遠の歌，大切な歌 青春の歌 始まりの歌',
+      'Popipa pipopa popipapapipopa! '
+
     ],
     // 弹幕滑过时间配置（秒）
     duration: {
