@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import config from '@/config/configs'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const gotoBlogs = () => {
+  router.push('/blogs')
+}
 
 // 从配置文件获取博客介绍信息
 const blogInfo = ref(config.blogsIntroduction)
@@ -43,7 +50,7 @@ onMounted(() => {
       
       <!-- 行动按钮 -->
       <div class="actions">
-        <button class="action-btn primary">
+        <button class="action-btn primary" @click="gotoBlogs">
           <span class="btn-icon">📚</span>
           开始阅读
         </button>

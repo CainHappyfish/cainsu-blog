@@ -37,7 +37,8 @@ export default [
         HTMLLinkElement: 'readonly',
         requestAnimationFrame: 'readonly',
         IntersectionObserver: 'readonly',
-        cancelAnimationFrame: 'readonly'
+        cancelAnimationFrame: 'readonly',
+        HTMLImageElement: 'readonly'
       }
     },
     plugins: {
@@ -77,7 +78,8 @@ export default [
         HTMLLinkElement: 'readonly',
         requestAnimationFrame: 'readonly',
         IntersectionObserver: 'readonly',
-        cancelAnimationFrame: 'readonly'
+        cancelAnimationFrame: 'readonly',
+        HTMLImageElement: 'readonly'
       }
     },
     plugins: {

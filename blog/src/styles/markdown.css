@@ -1,0 +1,390 @@
+/* Markdown 内容样式 */
+.markdown-content {
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-size: var(--text-base);
+}
+
+/* 标题样式 */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  font-weight: 700;
+  line-height: 1.3;
+  scroll-margin-top: 80px;
+}
+
+.markdown-content h1 {
+  font-size: var(--text-3xl);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: var(--spacing-sm);
+}
+
+.markdown-content h2 {
+  font-size: var(--text-2xl);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+  padding-left: var(--spacing-md);
+}
+
+.markdown-content h3 {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+}
+
+.markdown-content h4 {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+}
+
+.markdown-content h5,
+.markdown-content h6 {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+}
+
+/* 段落样式 */
+.markdown-content p {
+  margin: var(--spacing-lg) 0;
+  line-height: 1.8;
+}
+
+/* 链接样式 */
+.markdown-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.markdown-content a:hover {
+  border-bottom-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 列表样式 */
+.markdown-content ul,
+.markdown-content ol {
+  margin: var(--spacing-lg) 0;
+  padding-left: var(--spacing-xl);
+}
+
+.markdown-content li {
+  margin: var(--spacing-sm) 0;
+  line-height: 1.6;
+}
+
+.markdown-content ul li {
+  list-style-type: none;
+  position: relative;
+}
+
+.markdown-content ul li::before {
+  content: '•';
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: -var(--spacing-lg);
+}
+
+.markdown-content ol li {
+  list-style-type: decimal;
+  color: var(--text-primary);
+}
+
+/* 引用样式 */
+.markdown-content blockquote {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.markdown-content blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--primary-color);
+  opacity: 0.3;
+  position: absolute;
+  top: -10px;
+  left: var(--spacing-md);
+  font-family: serif;
+}
+
+.markdown-content blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  padding-left: var(--spacing-lg);
+}
+
+/* 内联代码样式 */
+.markdown-content code:not(pre code) {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 代码块样式将由CodeBlock组件处理 */
+.markdown-content > pre {
+  display: none; /* 隐藏原始pre标签，将由Vue组件替换 */
+}
+
+/* 确保CodeBlock组件内的pre标签正常显示 */
+.code-block-container pre,
+.code-block-wrapper pre {
+  display: block !important;
+}
+
+/* 表格样式 */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-xl) 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-content th {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.markdown-content td {
+  color: var(--text-primary);
+}
+
+.markdown-content tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 图片样式 */
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-slow);
+}
+
+.markdown-content img:hover {
+  transform: scale(1.02);
+}
+
+/* 分割线样式 */
+.markdown-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-full);
+}
+
+/* 强调样式 */
+.markdown-content strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.markdown-content em {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* 删除线样式 */
+.markdown-content del {
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+}
+
+/* 标记样式 */
+.markdown-content mark {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* 键盘按键样式 */
+.markdown-content kbd {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 任务列表样式 */
+.markdown-content input[type="checkbox"] {
+  margin-right: var(--spacing-xs);
+  accent-color: var(--primary-color);
+}
+
+/* 脚注样式 */
+.markdown-content .footnote {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+}
+
+/* 代码高亮主题 */
+.hljs {
+  background: transparent !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6c7986;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #ff79c6;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #bd93f9;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #f1fa8c;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #50fa7b;
+  font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #8be9fd;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #ff79c6;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #f1fa8c;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #8be9fd;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #ffb86c;
+}
+
+.hljs-meta {
+  color: #6c7986;
+}
+
+.hljs-deletion {
+  background: #ff5555;
+}
+
+.hljs-addition {
+  background: #50fa7b;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .markdown-content {
+    font-size: var(--text-sm);
+  }
+  
+  .markdown-content h1 {
+    font-size: var(--text-2xl);
+  }
+  
+  .markdown-content h2 {
+    font-size: var(--text-xl);
+  }
+  
+  .markdown-content h3 {
+    font-size: var(--text-lg);
+  }
+  
+  .markdown-content table {
+    font-size: var(--text-sm);
+  }
+  
+  .markdown-content th,
+  .markdown-content td {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .markdown-content blockquote {
+    margin: var(--spacing-lg) -var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  
+  .markdown-content ul,
+  .markdown-content ol {
+    padding-left: var(--spacing-lg);
+  }
+}
