@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getAllBlogPosts, getCategories, getPostsByCategory, formatDate, getLatestPosts, type BlogPost } from '@/utils/blogUtils'
+import defaultCover from '@/assets/kasumi.png'
 
 // 路由实例
 const router = useRouter()
@@ -65,7 +66,7 @@ const handlePostClick = (post: BlogPost) => {
 
 const handleImageError = (event: Event) => {
   const target = event.target as HTMLImageElement
-  target.src = '/src/assets/kasumi.png'
+  target.src = defaultCover
 }
 
 const goToPage = (page: number) => {
@@ -166,7 +167,7 @@ onMounted(async () => {
           >
             <div class="post-cover">
               <img 
-                :src="post.cover || '/src/assets/kasumi.png'" 
+                :src="post.cover || defaultCover" 
                 :alt="post.title"
                 @error="handleImageError"
               />
@@ -227,7 +228,7 @@ onMounted(async () => {
             >
               <div class="post-image">
                 <img 
-                  :src="post.cover || '/src/assets/kasumi.png'" 
+                  :src="post.cover || defaultCover" 
                   :alt="post.title"
                   @error="handleImageError"
                 />
