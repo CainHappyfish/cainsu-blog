@@ -263,7 +263,7 @@ const config = {
         description: '到处看各种二次元偶像的莱芜，咦呃女声优痴一股味',
         level: 5,
         color: '#2ecc71',
-        tags: ['风景摄影', '人文摄影', '生活记录', '后期处理'],
+        tags: ['2.5 次元', 'nsyc', '我不是神人', '液态噶是什么意思啊'],
         backgroundImage: 'https://pic1.imgdb.cn/item/68c1238158cb8da5c8960c64.jpg',
         size: 'medium' as const
       },
