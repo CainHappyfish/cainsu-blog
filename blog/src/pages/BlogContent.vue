@@ -364,11 +364,18 @@ onBeforeUnmount(() => {
   transition: all var(--transition-fast);
   margin-bottom: var(--spacing-lg);
   backdrop-filter: blur(10px);
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 .back-btn:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateX(-2px);
+}
+
+.back-btn:active {
+  transform: scale(0.98) translateX(-2px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .back-icon {
@@ -389,19 +396,37 @@ onBeforeUnmount(() => {
 
 .article-cover {
   width: 100%;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .article-cover img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  min-height: 100%;
+  object-fit: contain;
+  object-position: center;
   transition: transform var(--transition-slow);
 }
 
 .article-cover:hover img {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .article-cover {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-cover {
+    height: 220px;
+  }
 }
 
 .article-meta {
@@ -492,7 +517,7 @@ onBeforeUnmount(() => {
 /* 目录侧边栏 */
 .toc-sidebar {
   position: sticky;
-  top: var(--spacing-lg);
+  top: calc(var(--spacing-lg) + 60px);
 }
 
 .toc-container {
@@ -502,6 +527,8 @@ onBeforeUnmount(() => {
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: var(--spacing-lg);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .toc-title {
@@ -561,6 +588,13 @@ onBeforeUnmount(() => {
 }
 
 /* 响应式设计 */
+@media (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: 200px 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
 @media (max-width: 1024px) {
   .main-content {
     grid-template-columns: 1fr;
@@ -575,6 +609,16 @@ onBeforeUnmount(() => {
   .toc-container {
     max-height: 200px;
     overflow-y: auto;
+    padding: var(--spacing-md);
+  }
+  
+  .toc-title {
+    font-size: var(--text-base);
+  }
+  
+  .toc-item {
+    font-size: var(--text-xs);
+    padding: var(--spacing-xs);
   }
 }
 
@@ -583,38 +627,201 @@ onBeforeUnmount(() => {
     padding: var(--spacing-md) var(--spacing-sm);
   }
   
+  .article-container {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .back-btn {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    font-size: var(--text-xs);
+  }
+  
+  .article-header {
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+  }
+  
   .article-title {
     font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+  }
+  
+  .article-info {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .article-meta {
+    padding: var(--spacing-lg);
+  }
+  
+  .article-tags {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .tag {
+    font-size: var(--text-xs);
+    padding: 4px var(--spacing-xs);
+  }
+  
+  .article-summary {
+    font-size: var(--text-base);
+    padding: var(--spacing-sm);
+  }
+  
+  .article-body {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+  }
+  
+  .toc-container {
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-content-page {
+    padding: var(--spacing-sm);
+  }
+  
+  .back-btn {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .article-header {
+    border-radius: var(--radius-md);
+  }
+  
+  .article-title {
+    font-size: var(--text-xl);
+    text-align: center;
   }
   
   .article-info {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
   }
   
-  .article-meta {
-    padding: var(--spacing-lg);
+  .info-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .article-body {
-    padding: var(--spacing-lg);
+  .info-item:last-child {
+    border-bottom: none;
+  }
+  
+  .article-tags {
+    justify-content: center;
+  }
+  
+  .article-summary {
+    text-align: center;
+    font-size: var(--text-sm);
+  }
+  
+  .toc-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .toc-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
 
 @media (max-width: 480px) {
+  .blog-content-page {
+    padding: var(--spacing-xs);
+  }
+  
+  .back-btn {
+    font-size: 12px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .article-header {
+    border-radius: var(--radius-sm);
+  }
+  
   .article-title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-sm);
   }
   
   .article-meta {
     padding: var(--spacing-md);
   }
   
+  .info-label {
+    font-size: var(--text-xs);
+  }
+  
+  .info-value {
+    font-size: var(--text-sm);
+  }
+  
+  .tag {
+    font-size: 10px;
+    padding: 2px var(--spacing-xs);
+  }
+  
+  .article-summary {
+    font-size: var(--text-xs);
+    line-height: 1.5;
+  }
+  
   .article-body {
     padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
   }
   
   .toc-container {
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+  }
+  
+  .toc-title {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .toc-item {
+    font-size: 11px;
+    padding: 4px var(--spacing-xs);
+    line-height: 1.3;
+  }
+  
+  .toc-level-1 { padding-left: var(--spacing-xs); }
+  .toc-level-2 { padding-left: var(--spacing-sm); }
+  .toc-level-3 { padding-left: var(--spacing-md); }
+  .toc-level-4 { padding-left: var(--spacing-lg); }
+  .toc-level-5 { padding-left: calc(var(--spacing-lg) + var(--spacing-xs)); }
+  .toc-level-6 { padding-left: calc(var(--spacing-lg) + var(--spacing-sm)); }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .back-btn {
+    min-height: 48px;
+  }
+  
+  .toc-item {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tag {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
   }
 }
 

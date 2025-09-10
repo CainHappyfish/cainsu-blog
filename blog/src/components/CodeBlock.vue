@@ -315,21 +315,45 @@ const copyCode = async () => {
 }
 
 /* 响应式设计 */
+@media (max-width: 1024px) {
+  .code-block-container {
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .code-wrapper {
+    max-height: 500px;
+  }
+}
+
 @media (max-width: 768px) {
+  .code-block-container {
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+  }
+  
   .code-header {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
   }
   
   .code-info {
     gap: var(--spacing-sm);
+    flex: 1;
+    min-width: 0;
   }
   
   .language-tag {
     font-size: var(--text-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .copy-btn {
-    padding: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 36px;
+    flex-shrink: 0;
   }
   
   .copy-text {
@@ -337,23 +361,125 @@ const copyCode = async () => {
   }
   
   .line-numbers {
-    min-width: 40px;
+    min-width: 35px;
     padding: var(--spacing-sm) var(--spacing-xs);
+    font-size: calc(var(--text-xs) - 1px);
+  }
+  
+  .line-number {
+    padding: 0 2px;
   }
   
   .code-pre {
     padding: var(--spacing-sm);
     font-size: var(--text-xs);
+    line-height: 1.5;
+  }
+  
+  .code-wrapper {
+    max-height: 450px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .code-block-container {
+    margin: var(--spacing-sm) -var(--spacing-xs);
+    border-radius: var(--radius-sm);
+  }
+  
+  .code-header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
   .window-controls {
     display: none;
   }
   
+  .language-tag {
+    font-size: 10px;
+  }
+  
+  .copy-btn {
+    padding: var(--spacing-xs);
+    min-width: 32px;
+    min-height: 32px;
+    justify-content: center;
+  }
+  
+  .line-numbers {
+    min-width: 30px;
+    padding: var(--spacing-xs) 2px;
+  }
+  
+  .code-pre {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 11px;
+  }
+  
   .code-wrapper {
-    max-height: 400px;
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .code-block-container {
+    margin: var(--spacing-sm) -var(--spacing-sm);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .code-header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .code-info {
+    gap: var(--spacing-xs);
+  }
+  
+  .language-tag {
+    font-size: 9px;
+    max-width: 80px;
+  }
+  
+  .copy-btn {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 4px;
+  }
+  
+  .copy-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .line-numbers {
+    min-width: 25px;
+    padding: var(--spacing-xs) 1px;
+    font-size: 9px;
+  }
+  
+  .code-pre {
+    padding: var(--spacing-xs);
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  
+  .code-wrapper {
+    max-height: 300px;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .copy-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .copy-btn:active {
+    transform: scale(0.95);
+    background: #5c5c5c;
   }
 }
 </style>

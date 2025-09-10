@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "create:vue": "tsx scripts/create-vue.ts",
     "create:page": "tsx scripts/create-vue.ts page",
-    "create:component": "tsx scripts/create-vue.ts component"
+    "create:component": "tsx scripts/create-vue.ts component",
+    "create:blog": "tsx scripts/create-blog.ts"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-vue": "^0.9.3",

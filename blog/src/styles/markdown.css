@@ -83,19 +83,105 @@
 .markdown-content li {
   margin: var(--spacing-sm) 0;
   line-height: 1.6;
+  transition: all var(--transition-fast);
+}
+
+/* 无序列表样式 */
+.markdown-content ul {
+  list-style: none;
 }
 
 .markdown-content ul li {
-  list-style-type: none;
   position: relative;
+  padding-left: var(--spacing-md);
 }
 
+/* 一级无序列表 - 实心圆点 */
 .markdown-content ul li::before {
-  content: '•';
+  content: '●';
   color: var(--primary-color);
   font-weight: bold;
   position: absolute;
-  left: -var(--spacing-lg);
+  left: -0.7em;
+  top: -0.1em;
+  font-size: 1em;
+  line-height: 1.6;
+  transition: all var(--transition-fast);
+}
+
+/* 二级无序列表 - 空心圆点 */
+.markdown-content ul ul li::before {
+  content: '○';
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 0.8em;
+  top: 0.2em;
+}
+
+/* 三级无序列表 - 方块 */
+.markdown-content ul ul ul li::before {
+  content: '■';
+  color: var(--text-secondary);
+  font-size: 0.8em;
+  top: 0.2em;
+}
+
+/* 四级无序列表 - 菱形 */
+.markdown-content ul ul ul ul li::before {
+  content: '◆';
+  color: var(--text-tertiary);
+  font-size: 0.7em;
+  top: 0.25em;
+}
+
+/* 列表项悬停效果 */
+.markdown-content ul li:hover::before {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+}
+
+.markdown-content ul li:hover {
+  color: var(--primary-color);
+  padding-left: calc(var(--spacing-md) + 4px);
+}
+
+/* 嵌套列表间距调整 */
+.markdown-content ul ul {
+  margin: var(--spacing-xs) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.markdown-content ul ul ul {
+  padding-left: var(--spacing-md);
+}
+
+/* 列表项内容样式 */
+.markdown-content ul li p {
+  margin: 0;
+  display: inline;
+}
+
+/* 任务列表特殊样式 */
+.markdown-content ul li input[type="checkbox"] {
+  margin-right: var(--spacing-xs);
+  margin-left: calc(-1 * var(--spacing-md));
+  accent-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.markdown-content ul li input[type="checkbox"]:checked + * {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* 带复选框的列表项不显示自定义标记 */
+.markdown-content ul li:has(input[type="checkbox"])::before {
+  display: none;
+}
+
+.markdown-content ul li:has(input[type="checkbox"]) {
+  padding-left: 0;
 }
 
 .markdown-content ol li {
@@ -159,34 +245,51 @@
   width: 100%;
   border-collapse: collapse;
   margin: var(--spacing-xl) 0;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: var(--radius-lg);
   overflow: hidden;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .markdown-content th,
 .markdown-content td {
   padding: var(--spacing-md);
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.markdown-content th:last-child,
+.markdown-content td:last-child {
+  border-right: none;
 }
 
 .markdown-content th {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   color: white;
   font-weight: 600;
   font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
 }
 
 .markdown-content td {
   color: var(--text-primary);
 }
 
-.markdown-content tr:hover {
-  background: rgba(255, 255, 255, 0.05);
+/* 斑马纹效果 */
+.markdown-content tbody tr:nth-child(even) {
+  background: #b6755718;
+}
+
+.markdown-content tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.markdown-content tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* 图片样式 */
