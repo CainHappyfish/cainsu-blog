@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import hljs from 'highlight.js'
+import 'highlight.js/styles/github.css';
 
 interface Props {
   code: string
@@ -70,6 +71,7 @@ const languageDisplayName = computed(() => {
 const highlightedCode = computed(() => {
   if (detectedLanguage.value && hljs.getLanguage(detectedLanguage.value)) {
     try {
+      console.log('code:', hljs.highlight(props.code, { language: detectedLanguage.value }).value)
       return hljs.highlight(props.code, { language: detectedLanguage.value }).value
     } catch (err) {
       console.error('Highlight error:', err)
@@ -144,7 +146,7 @@ const copyCode = async () => {
         <!-- 行号 -->
         <div v-if="showLineNumbers" class="line-numbers">
           <span 
-            v-for="(line, index) in codeLines" 
+            v-for="(_, index) in codeLines" 
             :key="index"
             class="line-number"
           >
@@ -159,7 +161,7 @@ const copyCode = async () => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .code-block-container {
   background: #1e1e1e;
   border-radius: var(--radius-lg);
@@ -279,9 +281,7 @@ const copyCode = async () => {
   flex: 1;
   margin: 0;
   padding: var(--spacing-md);
-  background: #1e1e1e;
   overflow: visible;
-  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
   font-size: var(--text-sm);
   line-height: 1.6;
 }
@@ -290,62 +290,9 @@ const copyCode = async () => {
   background: transparent !important;
   padding: 0 !important;
   border: none !important;
-  color: #d4d4d4 !important;
   display: block;
-  -webkit-text-fill-color: #d4d4d4 !important;
   background-clip: initial !important;
   -webkit-background-clip: initial !important;
-}
-
-/* 代码高亮样式覆盖 */
-.code-pre code .hljs-keyword {
-  color: #569cd6 !important;
-  -webkit-text-fill-color: #569cd6 !important;
-}
-
-.code-pre code .hljs-string {
-  color: #ce9178 !important;
-  -webkit-text-fill-color: #ce9178 !important;
-}
-
-.code-pre code .hljs-number {
-  color: #b5cea8 !important;
-  -webkit-text-fill-color: #b5cea8 !important;
-}
-
-.code-pre code .hljs-comment {
-  color: #6a9955 !important;
-  -webkit-text-fill-color: #6a9955 !important;
-}
-
-.code-pre code .hljs-function {
-  color: #dcdcaa !important;
-  -webkit-text-fill-color: #dcdcaa !important;
-}
-
-.code-pre code .hljs-title {
-  color: #dcdcaa !important;
-  -webkit-text-fill-color: #dcdcaa !important;
-}
-
-.code-pre code .hljs-class {
-  color: #4ec9b0 !important;
-  -webkit-text-fill-color: #4ec9b0 !important;
-}
-
-.code-pre code .hljs-built_in {
-  color: #4ec9b0 !important;
-  -webkit-text-fill-color: #4ec9b0 !important;
-}
-
-.code-pre code .hljs-attr {
-  color: #9cdcfe !important;
-  -webkit-text-fill-color: #9cdcfe !important;
-}
-
-.code-pre code .hljs-variable {
-  color: #9cdcfe !important;
-  -webkit-text-fill-color: #9cdcfe !important;
 }
 
 /* 滚动条样式 */

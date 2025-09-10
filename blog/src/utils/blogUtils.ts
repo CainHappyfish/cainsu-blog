@@ -78,14 +78,14 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
       if (frontMatter.title && frontMatter.date) {
         const filename = path.split('/').pop()?.replace('.md', '') || ''
         posts.push({
-          title: frontMatter.title,
-          date: frontMatter.date,
-          category: frontMatter.category || '未分类',
-          tags: frontMatter.tags || [],
-          summary: frontMatter.summary || '',
-          author: frontMatter.author || '破酥',
-          readTime: frontMatter.readTime || '5分钟',
-          cover: frontMatter.cover,
+          title: frontMatter.title as string,
+          date: frontMatter.date as string,
+          category: (frontMatter.category as string) || '未分类',
+          tags: (frontMatter.tags as string[]) || [],
+          summary: (frontMatter.summary as string) || '',
+          author: (frontMatter.author as string) || '破酥',
+          readTime: (frontMatter.readTime as string) || '5分钟',
+          cover: frontMatter.cover as string | undefined,
           filename
         })
       }
