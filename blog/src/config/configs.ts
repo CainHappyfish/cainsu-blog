@@ -346,6 +346,26 @@ const config = {
           id: 6,
           url: 'https://pic1.imgdb.cn/item/68c1293358cb8da5c8965fe9.jpg',
           alt: '20250823 上海'
+        },
+        {
+          id: 7,
+          url: 'https://pic1.imgdb.cn/item/68c1253658cb8da5c8962747.jpg',
+          alt: '高中课间休息画的'
+        },
+        {
+          id: 8,
+          url: 'https://pic1.imgdb.cn/item/68c14a2458cb8da5c898310a.jpg',
+          alt: '高中毕业暑假学的，可惜三分钟热度了哈哈'
+        },
+        {
+          id: 9,
+          url: 'https://pic1.imgdb.cn/item/68c14a7758cb8da5c898319a.jpg',
+          alt: '爱美...'
+        },
+        {
+          id: 10,
+          url: 'https://pic1.imgdb.cn/item/68c14a9258cb8da5c89831ea.jpgg',
+          alt: 'id 的来源'
         }
       ]
     },
