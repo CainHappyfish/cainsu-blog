@@ -176,7 +176,7 @@ const config = {
       {
         id: 2,
         title: '初识前端',
-        period: '2022.08 - 2022.10',
+        period: '2024.08 - 2024.10',
         description: '开始从零学习前端，哇晒好酷炫',
         skills: ['Javascript', 'CSS', 'HTML', 'Vue', 'Typescript'],
         type: 'project' as const,
@@ -194,7 +194,7 @@ const config = {
       {
         id: 4,
         title: '微信支付',
-        period: '2025.02 - 2023.08',
+        period: '2025.02 - 2025.08',
         description: '当时朋友问我来不来，抱着试试的心态，边复习期末考边准备面试，没想到进了，收获满满的一次实习，遇到了很好的 mt 和同事',
         skills: ['境外支付', '全栈开发','Agent 开发'],
         type: 'work' as const,
