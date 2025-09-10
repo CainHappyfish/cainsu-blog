@@ -81,3 +81,6 @@ git commit -m "docs: 更新README文档"
 
 - 无法直接通过 https://blog.cainsu.site/about 类似的 url 访问
     - Github Pages无法处理history模式的前端路由。
+    - 解决方法：
+        hash
+- 轮播图播完时抽搐

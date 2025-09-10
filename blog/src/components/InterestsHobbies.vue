@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Hobby } from '@/types/about';
 import config from '@/config/configs'
 
@@ -8,13 +8,43 @@ defineProps<{
   hobbies: Hobby[]
 }>()
 
+const containerRef = ref<HTMLElement>()
 const isVisible = ref(false)
 const hoveredCard = ref<number | null>(null)
+const isIntersecting = ref(false)
+let observer: IntersectionObserver | null = null
+
+const setupIntersectionObserver = () => {
+  if (!containerRef.value) return
+  
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !isIntersecting.value) {
+          isIntersecting.value = true
+          setTimeout(() => {
+            isVisible.value = true
+          }, 200)
+        }
+      })
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '50px'
+    }
+  )
+  
+  observer.observe(containerRef.value)
+}
 
 onMounted(() => {
-  setTimeout(() => {
-    isVisible.value = true
-  }, 200)
+  setupIntersectionObserver()
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
 })
 
 const renderStars = (level: number) => {
@@ -27,7 +57,7 @@ const handleCardHover = (id: number | null) => {
 </script>
 
 <template>
-  <div class="interests-hobbies">
+  <div class="interests-hobbies" ref="containerRef">
     <div class="section-header">
       <h2>{{ config.interestsHobbiesSection.title }}</h2>
       <p>{{ config.interestsHobbiesSection.subtitle }}</p>

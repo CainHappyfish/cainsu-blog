@@ -44,3 +44,11 @@ export interface Hobby {
   size?: 'small' | 'medium' | 'large' // 卡片大小
   backgroundImage?: string // 背景图片
 }
+
+export interface Photo {
+  id: number
+  url: string
+  alt: string
+  visible?: boolean
+  loaded?: boolean
+}
