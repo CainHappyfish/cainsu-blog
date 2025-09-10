@@ -104,7 +104,7 @@ onMounted(() => {
   padding: var(--spacing-lg);
   width: calc(100% - 20px);  
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 60px auto;
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   backdrop-filter: blur(20px);

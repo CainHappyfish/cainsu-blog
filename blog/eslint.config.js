@@ -34,7 +34,10 @@ export default [
         setInterval: 'readonly',
         clearTimeout: 'readonly',
         clearInterval: 'readonly',
-        HTMLLinkElement: 'readonly'
+        HTMLLinkElement: 'readonly',
+        requestAnimationFrame: 'readonly',
+        IntersectionObserver: 'readonly',
+        cancelAnimationFrame: 'readonly'
       }
     },
     plugins: {
@@ -52,7 +55,10 @@ export default [
       parser: parserTypeScript,
       parserOptions: {
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true
+        }
       },
       globals: {
         console: 'readonly',
@@ -68,7 +74,10 @@ export default [
         setInterval: 'readonly',
         clearTimeout: 'readonly',
         clearInterval: 'readonly',
-        HTMLLinkElement: 'readonly'
+        HTMLLinkElement: 'readonly',
+        requestAnimationFrame: 'readonly',
+        IntersectionObserver: 'readonly',
+        cancelAnimationFrame: 'readonly'
       }
     },
     plugins: {

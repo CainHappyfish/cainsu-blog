@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     name: 'About',
     component: () => import('@/pages/About.vue'),
     meta: {
-      title: '关于我们'
+      title: '关于我'
     }
   },
   {
