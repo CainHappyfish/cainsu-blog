@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
 // 定义路由
@@ -47,7 +47,7 @@ const routes: RouteRecordRaw[] = [
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(_to, _from, savedPosition) {
     // 路由切换时的滚动行为
