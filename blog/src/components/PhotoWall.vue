@@ -300,29 +300,135 @@ onUnmounted(() => {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .photo-wall {
-    padding: 40px 15px;
+    padding: 30px 16px;
+    margin: 30px auto;
   }
   
-  .photos-container {
-    height: 250px;
+  .section-header {
+    margin-bottom: 30px;
   }
   
   .section-header h2 {
     font-size: 2rem;
   }
   
+  .section-header p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  
+  .photos-grid {
+    column-gap: 12px;
+    padding: 15px 0;
+  }
+  
   .photo-item {
-    margin-right: 15px;
+    margin-bottom: 16px;
+  }
+  
+  .photo-wrapper {
+    border-radius: 12px;
+  }
+  
+  .photo-overlay {
+    padding: 16px;
+  }
+  
+  .photo-alt {
+    font-size: 14px;
+  }
+  
+  .photo-placeholder {
+    height: 150px;
+  }
+  
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
   }
 }
 
 @media (max-width: 480px) {
-  .photos-container {
-    height: 200px;
+  .photo-wall {
+    padding: 20px 12px;
+    margin: 20px auto;
+  }
+  
+  .section-header {
+    margin-bottom: 25px;
   }
   
   .section-header h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .section-header p {
+    font-size: 0.9rem;
+    padding: 0 5px;
+  }
+  
+  .photos-grid {
+    column-gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .photo-item {
+    margin-bottom: 12px;
+  }
+  
+  .photo-wrapper {
+    border-radius: 10px;
+  }
+  
+  .photo-wrapper:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+  
+  .photo-overlay {
+    padding: 12px;
+  }
+  
+  .photo-alt {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .photo-placeholder {
+    height: 120px;
+  }
+  
+  .loading-spinner {
+    width: 25px;
+    height: 25px;
+    border-width: 2px;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 360px) {
+  .photo-wall {
+    padding: 15px 8px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .photos-grid {
+    column-gap: 8px;
+  }
+  
+  .photo-item {
+    margin-bottom: 10px;
+  }
+  
+  .photo-overlay {
+    padding: 10px;
+  }
+  
+  .photo-alt {
+    font-size: 12px;
   }
 }
 
