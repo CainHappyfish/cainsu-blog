@@ -82,7 +82,7 @@ onUnmounted(() => {
       <div class="photos-grid">
         <!-- 瀑布流照片网格 -->
         <div 
-          v-for="(photo, index) in visiblePhotos" 
+          v-for="photo in visiblePhotos" 
           :key="photo.id"
           class="photo-item"
           :class="{ 'photo-visible': photo.visible }"
