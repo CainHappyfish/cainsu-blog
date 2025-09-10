@@ -9,6 +9,8 @@ import CodeBlock from '@/components/CodeBlock.vue'
 import 'highlight.js/styles/github-dark.css'
 import '@/styles/markdown.css'
 
+import defaultCover from '@/assets/kasumi.png'
+
 const route = useRoute()
 const router = useRouter()
 
@@ -148,7 +150,7 @@ const goBack = () => {
 // 处理图片加载错误
 const handleImageError = (event: Event) => {
   const target = event.target as HTMLImageElement
-  target.src = '/src/assets/kasumi.png'
+  target.src = defaultCover
 }
 
 // 加载文章内容
@@ -232,7 +234,7 @@ onBeforeUnmount(() => {
        <header class="article-header">
          <div class="article-cover">
            <img 
-             :src="article.cover || '/src/assets/kasumi.png'" 
+             :src="article.cover || defaultCover" 
              :alt="article.title" 
              @error="handleImageError"
            />
