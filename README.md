@@ -77,3 +77,6 @@ git commit -m "fix: 修复分页组件显示问题"
 git commit -m "docs: 更新README文档"
 ```
 
+# 目前存在的问题
+
+- 无法直接通过 https://blog.cainsu.site/about 类似的 url 访问
