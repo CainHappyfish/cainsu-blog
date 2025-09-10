@@ -23,6 +23,7 @@ const isVisible = ref(false)
 // 处理博客点击
 const handleBlogClick = (link: string) => {
   // 这里可以添加路由跳转逻辑
+  window.open(link, '_blank')
   console.log('Navigate to:', link)
 }
 

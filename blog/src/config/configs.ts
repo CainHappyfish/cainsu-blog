@@ -74,48 +74,37 @@ const config = {
     blogs: [
       {
         id: 1,
-        title: 'Vue 3 Composition API 深度解析',
+        title: 'Vue 3 响应式原理',
         image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
-        link: '/blog/vue3-composition-api',
-        summary: '深入探讨 Vue 3 Composition API 的设计理念、核心特性以及在实际项目中的应用技巧，帮助开发者更好地理解和使用这一强大的功能。',
+        link: 'https://blog.cainsu.site/#/blog/Vue3-reactive',
+        summary: '深入探讨 Vue 3 响应式原理的设计理念、核心特性以及在实际项目中的应用技巧，帮助开发者更好地理解和使用这一强大的功能。',
         category: '前端技术',
-        publishDate: '2024-01-15',
-        readTime: '8 分钟',
+        publishDate: '2025-09-10',
+        readTime: '60 分钟',
         isMain: true
       },
       {
         id: 2,
-        title: 'TypeScript 进阶技巧',
-        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
-        link: '/blog/typescript-advanced',
-        summary: '分享 TypeScript 的高级类型系统、泛型编程以及在大型项目中的最佳实践。',
-        category: '编程语言',
-        publishDate: '2024-01-10',
-        readTime: '6 分钟',
+        title: 'grid-drag自定义布局制作',
+        image: 'https://pic1.imgdb.cn/item/68c126d158cb8da5c8963eee.jpg',
+        link: 'https://blog.cainsu.site/#/blog/grid-drag%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80%E5%88%B6%E4%BD%9C',
+        summary: '学习制作拖拽布局，实现可拖拽、可缩放的自定义布局系统',
+        category: '前端玩具',
+        publishDate: '2024-08-07',
+        readTime: '30 分钟',
         isMain: false
       },
       {
         id: 3,
-        title: '现代前端工程化实践',
+        title: 'Vue3 渲染器原理',
         image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
-        link: '/blog/frontend-engineering',
-        summary: '从构建工具到部署流程，全面介绍现代前端工程化的核心概念和实践方法。',
-        category: '工程化',
-        publishDate: '2024-01-05',
-        readTime: '10 分钟',
+        link: 'https://blog.cainsu.site/#/blog/Vue3%E6%B8%B2%E6%9F%93%E5%99%A8%E5%8E%9F%E7%90%86',
+        summary: '渲染器是用来执行渲染任务的。在浏览器平台上，用它来渲染其中的真实 DOM 元素。渲染器不仅能够渲染真实 DOM 元素，它还是框架跨平台能力的关键。因此，在设计渲染器的时候一定要考虑好可自定义的能力。',
+        category: '前端技术',
+        publishDate: '2025-09-05',
+        readTime: '60 分钟',
         isMain: false
       },
-      {
-        id: 4,
-        title: 'CSS Grid 布局完全指南',
-        image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
-        link: '/blog/css-grid-guide',
-        summary: '详细介绍 CSS Grid 布局的各种属性和使用场景，助你掌握现代网页布局技术。',
-        category: 'CSS',
-        publishDate: '2024-01-01',
-        readTime: '7 分钟',
-        isMain: false
-      }
     ]
   },
 

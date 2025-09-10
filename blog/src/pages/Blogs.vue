@@ -240,7 +240,6 @@ onMounted(async () => {
               <div class="post-content">
                 <header class="post-header">
                   <h3 class="post-title">{{ post.title }}</h3>
-                  <span class="post-category-tag" v-if="!post.cover">{{ post.category }}</span>
                 </header>
                 
                 <p class="post-summary">{{ post.summary }}</p>
