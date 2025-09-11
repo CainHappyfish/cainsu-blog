@@ -477,6 +477,179 @@ const config = {
         description: '我就偶尔当当神人，真的'
       }
     ]
+  },
+
+  // 友链页面配置
+  friendsPage: {
+    title: '友情链接',
+    subtitle: '一起成长的小伙伴们',
+    description: '这里是我在学习和工作中认识的朋友们，感谢大家的陪伴与支持！',
+    
+    // 友链分类
+    categories: [
+      { key: 'all', name: '全部', icon: '🌟' },
+      { key: 'tech', name: '有用的网站', icon: '💻' },
+      { key: 'friend', name: '朋友们', icon: '👥' },
+      { key: 'community', name: '社区', icon: '🏠' }
+    ],
+    
+    // 友链列表
+    friends: [
+      {
+        id: 1,
+        name: 'Vue.js 官方文档',
+        description: 'Vue.js 官方文档，前端开发必备',
+        url: 'https://vuejs.org/',
+        avatar: 'https://vuejs.org/logo.svg',
+        category: 'tech',
+        tags: ['Vue', '前端', '官方'],
+        status: 'active', // active, inactive
+        addTime: '2025-09-11'
+      },
+      {
+        id: 2,
+        name: 'TypeScript 官方文档',
+        description: 'TypeScript 官方文档，类型安全的 JavaScript',
+        url: 'https://www.typescriptlang.org/',
+        avatar: 'https://www.typescriptlang.org/favicon-32x32.png',
+        category: 'tech',
+        tags: ['TypeScript', '前端', '官方'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 3,
+        name: 'GitHub',
+        description: '全球最大的代码托管平台',
+        url: 'https://github.com',
+        avatar: 'https://github.githubassets.com/favicons/favicon.svg',
+        category: 'community',
+        tags: ['代码托管', '开源', '社区'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 4,
+        name: 'MDN Web Docs',
+        description: 'Web 开发者的权威参考文档',
+        url: 'https://developer.mozilla.org/',
+        avatar: 'https://developer.mozilla.org/favicon-48x48.png',
+        category: 'tech',
+        tags: ['Web', '文档', '参考'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 5,
+        name: '现代 JavaScript 教程',
+        description: '以最新的 JavaScript 标准为基准。通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。',
+        url: 'https://zh.javascript.info/',
+        avatar: 'https://zh.javascript.info/img/favicon/favicon.png',
+        category: 'tech',
+        tags: ['JavaScript', '前端'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 6,
+        name: 'CodeTop',
+        description: 'CodeTop用于汇总互联网大厂高频面试题，帮助大家更有针对性地刷Leetcode',
+        url: 'https://codetop.cc/',
+        avatar: 'https://codetop.cc/logo.jpg', 
+        category: 'tech',
+        tags: ['技术', '个人'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 7,
+        name: 'ForeverDdB',
+        description: 'you go my go here we go',
+        url: 'https://blog.foreverddb.top/',
+        avatar: 'https://pic1.imgdb.cn/item/68c2601f58cb8da5c89af0d8.jpg',
+        category: 'friend',
+        tags: ['frontend', 'uestc'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 8,
+        name: 'YH',
+        description: '相遇是最小单位的奇迹',
+        url: 'https://yhblogs.cn/',
+        avatar: 'https://pic.imgdb.cn/item/6681281bd9c307b7e9f8f3ed.jpg',
+        category: 'friend',
+        tags: ['frontend', 'uestc'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 9,
+        name: 'Cakndex',
+        description: '看看你的',
+        url: 'https://cakndex.github.io/Cakndex.github.io-blog/',
+        avatar: 'https://pic.imgdb.cn/item/668132fed9c307b7e90696f1.jpg',
+        category: 'friend',
+        tags: ['frontend', 'uestc'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 10,
+        name: 'Zbwer',
+        description: '地球其实只是一个柯基的屁股',
+        url: 'https://blog.zbwer.work/',
+        avatar: 'https://avatars.githubusercontent.com/u/49082837?v=4',
+        category: 'friend',
+        tags: ['frontend', 'uestc'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 11,
+        name: 'Andonade',
+        description: '普普通通的故事正在继续',
+        url: 'https://andonade.github.io',
+        avatar: 'https://s2.loli.net/2024/04/26/7LRHdZcFeG3WVi9.jpg',
+        category: 'friend',
+        tags: ['神', 'thu'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 12,
+        name: '水沢绫音',
+        description: '我从来没有觉得学图形学开心过。',
+        url: 'https://pat-chou-li.github.io/ayene-no-blog/',
+        avatar: 'https://raw.githubusercontent.com/pat-chou-li/ayene-no-blog/main/resource/avatar.jpg',
+        category: 'friend',
+        tags: ['前端', 'fdu'],
+        status: 'active',
+        addTime: '2025-09-11'
+      }
+    ],
+    
+    // 申请友链的信息
+    applyInfo: {
+      title: '你好！我是破酥',
+      description: '欢迎志同道合的朋友交换友链',
+      requirements: [
+        '网站内容积极向上，无违法违规内容',
+        '网站能够正常访问，加载速度合理',
+        '最好是技术类博客或个人网站，好吧其实都行',
+        '希望能够长期维护更新'
+      ],
+      myInfo: {
+        name: 'CainSu Blog',
+        description: '普普通通的故事正在继续',
+        url: 'https://blog.cainsu.site',
+        avatar: '/avatar.jpg'
+      },
+      contact: {
+        email: 'c4in_@outlook.com',
+        github: 'https://github.com/cainhappyfish'
+      }
+    }
   }
 }
 
