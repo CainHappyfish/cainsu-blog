@@ -38,7 +38,9 @@ export default [
         requestAnimationFrame: 'readonly',
         IntersectionObserver: 'readonly',
         cancelAnimationFrame: 'readonly',
-        HTMLImageElement: 'readonly'
+        KeyboardEvent: 'readonly',
+        HTMLImageElement: 'readonly',
+        HTMLInputElement: 'readonly'
       }
     },
     plugins: {
@@ -79,7 +81,9 @@ export default [
         requestAnimationFrame: 'readonly',
         IntersectionObserver: 'readonly',
         cancelAnimationFrame: 'readonly',
-        HTMLImageElement: 'readonly'
+        KeyboardEvent: 'readonly',
+        HTMLImageElement: 'readonly',
+        HTMLInputElement: 'readonly'
       }
     },
     plugins: {

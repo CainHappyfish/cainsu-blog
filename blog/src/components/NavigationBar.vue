@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import config from '@/config/configs'
+import SearchModal from '@/components/SearchModal.vue'
+import { getAllBlogPosts, type BlogPost } from '@/utils/blogUtils'
 
 // 路由相关
 const route = useRoute()
@@ -49,6 +51,34 @@ const checkSystemTheme = () => {
 
 // 组件挂载时检测主题
 checkSystemTheme()
+
+// 搜索相关状态
+const isSearchModalOpen = ref(false)
+const allBlogs = ref<BlogPost[]>([])
+
+// 打开搜索弹窗
+const openSearchModal = () => {
+  isSearchModalOpen.value = true
+}
+
+// 关闭搜索弹窗
+const closeSearchModal = () => {
+  isSearchModalOpen.value = false
+}
+
+// 加载博客数据
+const loadBlogs = async () => {
+  try {
+    allBlogs.value = await getAllBlogPosts()
+  } catch (error) {
+    console.error('加载博客数据失败:', error)
+  }
+}
+
+// 组件挂载时加载博客数据
+onMounted(() => {
+  loadBlogs()
+})
 </script>
 
 <template>
@@ -77,6 +107,11 @@ checkSystemTheme()
           </a>
         </div>
 
+        <!-- 搜索按钮 -->
+        <button class="search-btn" @click="openSearchModal" title="搜索文章">
+          <span class="search-icon">🔍</span>
+        </button>
+
         <!-- 主题切换按钮 -->
         <button class="theme-toggle" @click="toggleTheme" :title="isDarkMode ? '切换到亮色主题' : '切换到暗色主题'">
           <span class="theme-icon">{{ isDarkMode ? '☀️' : '🌙' }}</span>
@@ -85,6 +120,9 @@ checkSystemTheme()
 
       <!-- 移动端菜单按钮 -->
       <div class="mobile-menu-toggle">
+        <button class="search-btn mobile-search" @click="openSearchModal" title="搜索文章">
+          <span class="search-icon">🔍</span>
+        </button>
         <button class="theme-toggle mobile-theme" @click="toggleTheme">
           <span class="theme-icon">{{ isDarkMode ? '☀️' : '🌙' }}</span>
         </button>
@@ -116,6 +154,13 @@ checkSystemTheme()
         </div>
       </div>
     </div>
+    
+    <!-- 搜索弹窗 -->
+    <SearchModal 
+      :is-open="isSearchModalOpen" 
+      :blogs="allBlogs" 
+      @close="closeSearchModal" 
+    />
   </nav>
 </template>
 
@@ -227,6 +272,32 @@ checkSystemTheme()
 
 .nav-text {
   font-size: var(--text-sm);
+}
+
+/* 搜索按钮 */
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.search-icon {
+  font-size: var(--text-base);
+  line-height: 1;
 }
 
 /* 主题切换按钮 */
@@ -352,6 +423,12 @@ checkSystemTheme()
   font-size: var(--text-base);
 }
 
+/* 移动端搜索按钮 */
+.mobile-search {
+  width: 36px;
+  height: 36px;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .navbar-container {
@@ -365,6 +442,8 @@ checkSystemTheme()
   
   .mobile-menu-toggle {
     display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
   }
   
   .mobile-menu {

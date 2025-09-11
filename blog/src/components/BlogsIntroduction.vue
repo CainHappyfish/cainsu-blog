@@ -2,23 +2,49 @@
 import { ref, onMounted } from 'vue'
 import config from '@/config/configs'
 import { useRouter } from 'vue-router'
+import SearchModal from './SearchModal.vue'
+import { getAllBlogPosts, type BlogPost } from '@/utils/blogUtils'
 
 const router = useRouter()
+const isSearchModalOpen = ref(false)
+const blogs = ref<BlogPost[]>([])
+const loading = ref(true)
 
 const gotoBlogs = () => {
   router.push('/blogs')
 }
 
+const openSearchModal = () => {
+  isSearchModalOpen.value = true
+}
+
+const closeSearchModal = () => {
+  isSearchModalOpen.value = false
+}
+
 // 从配置文件获取博客介绍信息
 const blogInfo = ref(config.blogsIntroduction)
+
+// 加载博客数据
+const loadBlogs = async () => {
+  try {
+    loading.value = true
+    blogs.value = await getAllBlogPosts()
+  } catch (error) {
+    console.error('Failed to load blog posts:', error)
+  } finally {
+    loading.value = false
+  }
+}
 
 // 动画控制
 const isVisible = ref(false)
 
-onMounted(() => {
+onMounted(async () => {
+  await loadBlogs()
   setTimeout(() => {
     isVisible.value = true
-  }, 100)
+  }, 300)
 })
 </script>
 
@@ -54,12 +80,19 @@ onMounted(() => {
           <span class="btn-icon">📚</span>
           开始阅读
         </button>
-        <button class="action-btn secondary">
+        <button class="action-btn secondary" @click="openSearchModal">
           <span class="btn-icon">🔍</span>
           搜索文章
         </button>
       </div>
     </div>
+    
+    <!-- 搜索弹窗 -->
+     <SearchModal 
+       :is-open="isSearchModalOpen" 
+       :blogs="blogs" 
+       @close="closeSearchModal" 
+     />
   </div>
 </template>
 
