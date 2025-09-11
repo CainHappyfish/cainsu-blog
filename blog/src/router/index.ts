@@ -36,7 +36,7 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/blog/:filename',
+    path: '/blogs/:filename',
     name: 'BlogContent',
     component: () => import('@/pages/BlogContent.vue'),
     meta: {
