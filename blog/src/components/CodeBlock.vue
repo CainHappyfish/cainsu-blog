@@ -287,6 +287,7 @@ const copyCode = async () => {
 }
 
 .code-pre code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
   background: transparent !important;
   padding: 0 !important;
   border: none !important;
