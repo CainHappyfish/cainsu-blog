@@ -120,7 +120,9 @@ const config = {
       'Talk is cheap, show me the code 💻',
       'おちてく過去は鮮明で',
       '大好きな歌 約束の歌 永遠の歌，大切な歌 青春の歌 始まりの歌',
-      'Popipa pipopa popipapapipopa! '
+      'Popipa pipopa popipapapipopa! ',
+      '博客施工中 🔨',
+      '博客施工中 🚧'
     ],
     // 弹幕滑过时间配置（秒）
     duration: {
@@ -608,7 +610,7 @@ const config = {
       {
         id: 11,
         name: 'Andonade',
-        description: '普普通通的故事正在继续',
+        description: 'Normal one. Normal days.',
         url: 'https://andonade.github.io',
         avatar: 'https://s2.loli.net/2024/04/26/7LRHdZcFeG3WVi9.jpg',
         category: 'friend',
@@ -624,6 +626,17 @@ const config = {
         avatar: 'https://raw.githubusercontent.com/pat-chou-li/ayene-no-blog/main/resource/avatar.jpg',
         category: 'friend',
         tags: ['前端', 'fdu'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 13,
+        name: 'April',
+        description: 'Eloim Essaim, Eloim Essaim.',
+        url: 'https://cenyuchun.top/',
+        avatar: 'https://pic1.imgdb.cn/item/68c26ada58cb8da5c89b28c3.svg',
+        category: 'friend',
+        tags: ['thu'],
         status: 'active',
         addTime: '2025-09-11'
       }
