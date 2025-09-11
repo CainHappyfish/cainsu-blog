@@ -104,7 +104,7 @@ checkSystemTheme()
     <!-- 移动端下拉菜单 -->
     <div class="mobile-menu" :class="{ open: isMobileMenuOpen }">
       <div class="mobile-nav">
-        <a
+        <div
           v-for="item in navItems"
           :key="item.path"
           class="mobile-nav-link"
@@ -113,7 +113,7 @@ checkSystemTheme()
         >
           <span class="nav-icon">{{ item.icon }}</span>
           <span class="nav-text">{{ item.name }}</span>
-        </a>
+        </div>
       </div>
     </div>
   </nav>

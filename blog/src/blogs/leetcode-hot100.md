@@ -5,7 +5,7 @@ category: "算法"
 tags: ["javascript", "算法"]
 summary: "用于记录 leetcode hot100 题解和一些思路"
 author: "破酥"
-readTime: "60f分钟"
+readTime: "60分钟"
 cover: "https://static.leetcode-cn.com/cn-legacy-assets/images/LeetCode_Sharing.png"
 ---
 
