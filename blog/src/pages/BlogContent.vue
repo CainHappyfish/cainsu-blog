@@ -782,6 +782,11 @@ onBeforeUnmount(() => {
   .article-body {
     padding: var(--spacing-md);
     border-radius: var(--radius-sm);
+    max-width: calc(100vw - 10px);
+  }
+
+  .toc-sidebar {
+    max-width: calc(100vw - 10px);
   }
   
   .toc-container {
