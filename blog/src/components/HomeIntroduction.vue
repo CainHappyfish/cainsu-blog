@@ -74,7 +74,7 @@ onMounted(() => {
               🔗 GitHub
             </a>
             <a :href="personalInfo.contact.blog" target="_blank" class="contact-link">
-              📝 个人博客
+              📝 之前的博客
             </a>
           </div>
         </div>

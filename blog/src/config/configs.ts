@@ -11,7 +11,7 @@ const config = {
     contact: {
       email: 'c4in_@outlook.com',
       github: 'https://github.com/cainhappyfish',
-      blog: 'https://cainhappyfish.github.io'
+      blog: 'https://c4in1.github.io/'
     }
   },
 
@@ -625,7 +625,7 @@ const config = {
         url: 'https://pat-chou-li.github.io/ayene-no-blog/',
         avatar: 'https://raw.githubusercontent.com/pat-chou-li/ayene-no-blog/main/resource/avatar.jpg',
         category: 'friend',
-        tags: ['前端', 'fdu'],
+        tags: ['frontend', 'fdu'],
         status: 'active',
         addTime: '2025-09-11'
       },
@@ -637,6 +637,17 @@ const config = {
         avatar: 'https://pic1.imgdb.cn/item/68c26ada58cb8da5c89b28c3.svg',
         category: 'friend',
         tags: ['thu'],
+        status: 'active',
+        addTime: '2025-09-11'
+      },
+      {
+        id: 14,
+        name: 'dusk',
+        description: 'just for pleasure',
+        url: 'https://jwdusk.github.io/',
+        avatar: 'https://jwdusk.github.io/images/avatar.jpg',
+        category: 'friend',
+        tags: ['tju'],
         status: 'active',
         addTime: '2025-09-11'
       }
