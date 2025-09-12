@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/github.css'
+import { useTheme } from './composables/useTheme'
 
 // import config from './config/configs'
 
@@ -15,6 +16,10 @@ import 'highlight.js/styles/github.css';
 // if (favicon) {
 //   favicon.href = config.siteInfo.icon
 // }
+
+// 初始化主题系统
+const { initTheme } = useTheme()
+initTheme()
 
 const app = createApp(App)
 app.use(router)

@@ -622,6 +622,11 @@ onBeforeUnmount(() => {
     font-size: var(--text-xs);
     padding: var(--spacing-xs);
   }
+
+  .article-body {
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -838,6 +843,23 @@ onBeforeUnmount(() => {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .article-title {
+    background: linear-gradient(135deg, #66AAFF, #4488DD, #2266BB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.dark .article-title {
+  background: linear-gradient(135deg, #66AAFF, #4488DD, #2266BB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* 动画 */

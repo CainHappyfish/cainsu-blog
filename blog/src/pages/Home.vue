@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import {isMobile} from '@/utils/tools'
+import { useTheme } from '@/composables/useTheme'
 
 import HomeNavigation from '@/components/HomeNavigation.vue'
 import HomeIntroduction from '@/components/HomeIntroduction.vue'
 import Introduction from '@/components/Introduction.vue'
 import Danmaku from '@/components/Danmaku.vue'
+
+// 使用主题管理
+const { initTheme } = useTheme()
+
+// 确保主题在首页正确初始化
+onMounted(() => {
+  initTheme()
+})
 
 // 获取导航组件的引用
 const homeNavigationRef = ref()

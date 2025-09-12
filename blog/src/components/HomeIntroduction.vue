@@ -549,4 +549,52 @@ onMounted(() => {
     padding: 3px 5px;
   }
 }
+
+/* 深色模式适配 - 更明亮的渐变颜色 */
+@media (prefers-color-scheme: dark) {
+  .name {
+    background: linear-gradient(135deg, #66AAFF, #FF88CC, #AADD66, #FFCC44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .job-title {
+    background: linear-gradient(135deg, #88CCFF, #FFAADD, #CCFF88, #FFDD66, #AADDFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .typing-cursor {
+    color: #66AAFF;
+  }
+  
+  .contact-link {
+    color: #ffffff;
+  }
+}
+
+/* 深色模式类选择器适配 */
+.dark .name {
+  background: linear-gradient(135deg, #66AAFF, #FF88CC, #AADD66, #FFCC44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .job-title {
+  background: linear-gradient(135deg, #88CCFF, #FFAADD, #CCFF88, #FFDD66, #AADDFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .typing-cursor {
+  color: #66AAFF;
+}
+
+.dark .contact-link {
+  color: #ffffff;
+}
 </style>

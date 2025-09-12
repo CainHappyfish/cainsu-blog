@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import config from '@/config/configs'
 import SearchModal from '@/components/SearchModal.vue'
 import { getAllBlogPosts, type BlogPost } from '@/utils/blogUtils'
+import { useTheme } from '@/composables/useTheme'
 
 // 路由相关
 const route = useRoute()
@@ -32,25 +33,14 @@ const navigateTo = (path: string) => {
   isMobileMenuOpen.value = false // 移动端点击后关闭菜单
 }
 
-// 主题切换状态
-const isDarkMode = ref(false)
+// 使用主题管理
+const { isDarkMode, toggleTheme, initTheme } = useTheme()
 
-// 切换主题
-const toggleTheme = () => {
-  isDarkMode.value = !isDarkMode.value
-  document.documentElement.classList.toggle('dark', isDarkMode.value)
-}
-
-// 检测系统主题偏好
-const checkSystemTheme = () => {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    isDarkMode.value = true
-    document.documentElement.classList.add('dark')
-  }
-}
-
-// 组件挂载时检测主题
-checkSystemTheme()
+// 组件挂载时初始化主题
+onMounted(() => {
+  initTheme()
+  loadBlogs()
+})
 
 // 搜索相关状态
 const isSearchModalOpen = ref(false)
@@ -75,10 +65,7 @@ const loadBlogs = async () => {
   }
 }
 
-// 组件挂载时加载博客数据
-onMounted(() => {
-  loadBlogs()
-})
+// 博客数据已在上面的onMounted中加载
 </script>
 
 <template>
@@ -174,7 +161,7 @@ onMounted(() => {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: var(--theme-transition), all var(--transition-fast);
 }
 
 .navbar-container {
@@ -236,7 +223,7 @@ onMounted(() => {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--transition-fast);
+  transition: var(--theme-transition), all var(--transition-fast);
   cursor: pointer;
   position: relative;
 }
@@ -286,7 +273,7 @@ onMounted(() => {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: var(--theme-transition), all var(--transition-fast);
 }
 
 .search-btn:hover {
@@ -312,7 +299,7 @@ onMounted(() => {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: var(--theme-transition), all var(--transition-fast);
 }
 
 .theme-toggle:hover {
@@ -430,6 +417,18 @@ onMounted(() => {
 }
 
 /* 响应式设计 */
+@media (max-width: 900px) {
+  .nav-text {
+    display: none;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-sm);
+    min-width: 40px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 var(--spacing-sm);

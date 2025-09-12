@@ -71,24 +71,53 @@
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;
+  
+  /* 主题切换过渡 */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* 暗色主题 - 已禁用，强制使用白天模式 */
-/* @media (prefers-color-scheme: dark) {
+/* 暗色主题 */
+.dark {
+  --primary-color: #3344AA;
+  --primary-hover: #4455BB;
+  --secondary-color: #881188;
+  --accent-color: #DD0088;
+  --success-color: #00AABB;
+  --warning-color: #FFCC11;
+  --error-color: #DD2200;
+  
+  --text-primary: #DDDDFF;
+  --text-secondary: #BBBBBB;
+  --text-muted: #999999;
+  --text-white: #ffffff;
+  
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-tertiary: #0f3460;
+  --bg-dark: #0a0a0a;
+  --bg-darker: #000000;
+  
+  --border-light: #333366;
+  --border-medium: #444477;
+  --border-dark: #555588;
+}
+
+/* 系统主题偏好检测 */
+@media (prefers-color-scheme: dark) {
   :root {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
+    --text-primary: #DDDDFF;
+    --text-secondary: #BBBBBB;
+    --text-muted: #999999;
     
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-tertiary: #0f3460;
     
-    --border-light: #374151;
-    --border-medium: #4b5563;
-    --border-dark: #6b7280;
+    --border-light: #333366;
+    --border-medium: #444477;
+    --border-dark: #555588;
   }
-} */
+}
 
 /* 基础样式 */
 html {
@@ -98,6 +127,7 @@ html {
 
 body {
   font-family: var(--font-sans);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--text-primary);
@@ -110,7 +140,7 @@ body {
 a {
   color: var(--primary-color);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: var(--theme-transition), color var(--transition-fast);
 }
 
 a:hover {
@@ -176,7 +206,7 @@ button {
   background-color: var(--primary-color);
   color: var(--text-white);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: var(--theme-transition), all var(--transition-fast);
   text-decoration: none;
 }
 

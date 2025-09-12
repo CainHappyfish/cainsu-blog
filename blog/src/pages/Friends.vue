@@ -271,21 +271,23 @@ const openFriendLink = (url: string) => {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--border-light);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 25px;
   cursor: pointer;
   transition: var(--transition-normal);
   font-weight: 500;
   color: var(--text-secondary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .filter-button:hover {
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .filter-button.active {
@@ -322,14 +324,14 @@ const openFriendLink = (url: string) => {
 
 .friend-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 25px;
   cursor: pointer;
   transition: var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
@@ -346,8 +348,10 @@ const openFriendLink = (url: string) => {
 
 .friend-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-color);
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .card-glow {
@@ -458,19 +462,22 @@ const openFriendLink = (url: string) => {
 
 .stat-item {
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 20px;
   min-width: 120px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: var(--transition-normal);
 }
 
 .stat-item:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .stat-icon {
@@ -504,14 +511,14 @@ const openFriendLink = (url: string) => {
 }
 
 .apply-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
   width: 70%;
   margin: 40px auto;
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-light);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 40px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .apply-card h2 {
@@ -595,7 +602,7 @@ const openFriendLink = (url: string) => {
 }
 
 .site-url {
-  color: var(--primary-color) !important;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -721,22 +728,14 @@ const openFriendLink = (url: string) => {
   }
 }
 
-/* 深色模式支持 */
+/* 深色模式适配 */
 @media (prefers-color-scheme: dark) {
-  .friends-page {
-    background: transparent;
+  .site-url {
+    color: #ffffff !important;
   }
-  
-  .friend-card,
-  .apply-card,
-  .stat-item,
-  .filter-button {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .filter-button.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  }
+}
+
+.dark .site-url {
+  color: #ffffff;
 }
 </style>

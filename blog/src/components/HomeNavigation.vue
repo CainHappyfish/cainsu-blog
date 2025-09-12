@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import config from '@/config/configs'
+import { useTheme } from '@/composables/useTheme'
 
 const router = useRouter()
 const curIndex = ref('首页')
@@ -26,26 +27,8 @@ const handleNavClick = (item: any) => {
 }
 
 
-// 主题切换状态
-const isDarkMode = ref(false)
-
-// 切换主题
-const toggleTheme = () => {
-  isDarkMode.value = !isDarkMode.value
-  document.documentElement.classList.toggle('dark', isDarkMode.value)
-}
-
-// 检测系统主题偏好
-const checkSystemTheme = () => {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    isDarkMode.value = true
-    document.documentElement.classList.add('dark')
-  }
-}
-
-
-// 组件挂载时检测主题
-checkSystemTheme()
+// 使用主题管理
+const { isDarkMode, toggleTheme } = useTheme()
 
 // 暴露curIndex给父组件
 defineExpose({

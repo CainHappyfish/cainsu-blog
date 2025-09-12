@@ -61,7 +61,7 @@ const selectCategory = (category: string) => {
 
 const handlePostClick = (post: BlogPost) => {
   // 跳转到文章详情页
-  router.push(`/blog/${post.filename}`)
+  router.push(`/blogs/${post.filename}`)
 }
 
 const handleImageError = (event: Event) => {
@@ -956,8 +956,39 @@ onMounted(async () => {
   }
 }
 
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .tag {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tag:hover {
+    backdrop-filter: blur(25px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.dark .tag {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .tag:hover {
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
 /* 响应式设计 */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .posts-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);

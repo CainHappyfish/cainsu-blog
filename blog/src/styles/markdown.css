@@ -62,15 +62,6 @@
   color: var(--primary-color);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: all var(--transition-fast);
-}
-
-.markdown-content a:hover {
-  border-bottom-color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* 列表样式 */
@@ -83,7 +74,6 @@
 .markdown-content li {
   margin: var(--spacing-sm) 0;
   line-height: 1.6;
-  transition: all var(--transition-fast);
 }
 
 /* 无序列表样式 */
@@ -106,7 +96,6 @@
   top: -0.1em;
   font-size: 1em;
   line-height: 1.6;
-  transition: all var(--transition-fast);
 }
 
 /* 二级无序列表 - 空心圆点 */
@@ -134,16 +123,7 @@
   top: 0.25em;
 }
 
-/* 列表项悬停效果 */
-.markdown-content ul li:hover::before {
-  transform: scale(1.2);
-  color: var(--secondary-color);
-}
 
-.markdown-content ul li:hover {
-  color: var(--primary-color);
-  padding-left: calc(var(--spacing-md) + 4px);
-}
 
 /* 嵌套列表间距调整 */
 .markdown-content ul ul {
@@ -184,9 +164,74 @@
   padding-left: 0;
 }
 
+/* 有序列表样式 - 使用CSS counter实现正确的嵌套编号 */
+.markdown-content ol {
+  list-style: none;
+  counter-reset: list-counter;
+}
+
 .markdown-content ol li {
-  list-style-type: decimal;
+  position: relative;
+  counter-increment: list-counter;
   color: var(--text-primary);
+  padding-left: var(--spacing-md);
+}
+
+.markdown-content ol li::before {
+  content: counter(list-counter) ".";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  min-width: 1.2em;
+  text-align: right;
+}
+
+/* 二级有序列表 */
+.markdown-content ol ol {
+  counter-reset: list-counter-2;
+  margin: var(--spacing-xs) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.markdown-content ol ol li {
+  counter-increment: list-counter-2;
+}
+
+.markdown-content ol ol li::before {
+  content: counter(list-counter-2, lower-alpha) ".";
+  color: var(--secondary-color);
+}
+
+/* 三级有序列表 */
+.markdown-content ol ol ol {
+  counter-reset: list-counter-3;
+  padding-left: var(--spacing-md);
+}
+
+.markdown-content ol ol ol li {
+  counter-increment: list-counter-3;
+}
+
+.markdown-content ol ol ol li::before {
+  content: counter(list-counter-3, lower-roman) ".";
+  color: var(--text-secondary);
+}
+
+/* 四级有序列表 */
+.markdown-content ol ol ol ol {
+  counter-reset: list-counter-4;
+}
+
+.markdown-content ol ol ol ol li {
+  counter-increment: list-counter-4;
+}
+
+.markdown-content ol ol ol ol li::before {
+  content: counter(list-counter-4, decimal) ".";
+  color: var(--text-tertiary);
+  font-size: 0.9em;
 }
 
 /* 引用样式 */
@@ -227,6 +272,161 @@
   font-size: 0.9em;
   color: var(--primary-color);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 深色模式样式 */
+@media (prefers-color-scheme: dark) {
+  .markdown-content {
+    color: #e2e8f0;
+  }
+  
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3 {
+    background: linear-gradient(135deg, #66AAFF, #4488DD, #2266BB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .markdown-content h4,
+  .markdown-content h5,
+  .markdown-content h6 {
+    color: #cbd5e1;
+  }
+  
+  .markdown-content p {
+    color: #e2e8f0;
+  }
+  
+  .markdown-content ol li,
+  .markdown-content ul li {
+    color: #e2e8f0;
+  }
+  
+  .markdown-content blockquote p {
+    color: #cbd5e1;
+  }
+  
+  .markdown-content td {
+    color: #e2e8f0;
+  }
+  
+  .markdown-content del {
+    color: #64748b;
+  }
+  
+  .markdown-content kbd {
+    color: #f1f5f9;
+  }
+  
+  .markdown-content .footnote {
+    color: #64748b;
+  }
+  
+  .markdown-content code:not(pre code) {
+    color: #ff4757;
+  }
+  
+  .markdown-content ol ol li::before {
+    color: #ff4757;
+  }
+  
+  .markdown-content ol ol ol li::before {
+    color: #cbd5e1;
+  }
+  
+  .markdown-content ol ol ol ol li::before {
+    color: #64748b;
+  }
+  
+  .markdown-content ul ul li::before {
+    color: #ff4757;
+  }
+  
+  .markdown-content ul ul ul li::before {
+    color: #cbd5e1;
+  }
+  
+  .markdown-content ul ul ul ul li::before {
+    color: #64748b;
+  }
+}
+
+.dark .markdown-content {
+  color: #e2e8f0;
+}
+
+.dark .markdown-content h1,
+.dark .markdown-content h2,
+.dark .markdown-content h3 {
+  background: linear-gradient(135deg, #66AAFF, #4488DD, #2266BB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .markdown-content h4,
+.dark .markdown-content h5,
+.dark .markdown-content h6 {
+  color: #cbd5e1;
+}
+
+.dark .markdown-content p {
+  color: #e2e8f0;
+}
+
+.dark .markdown-content ol li,
+.dark .markdown-content ul li {
+  color: #e2e8f0;
+}
+
+.dark .markdown-content blockquote p {
+  color: #cbd5e1;
+}
+
+.dark .markdown-content td {
+  color: #e2e8f0;
+}
+
+.dark .markdown-content del {
+  color: #64748b;
+}
+
+.dark .markdown-content kbd {
+  color: #f1f5f9;
+}
+
+.dark .markdown-content .footnote {
+  color: #64748b;
+}
+
+.dark .markdown-content code:not(pre code) {
+  color: #ff4757;
+}
+
+.dark .markdown-content ol ol li::before {
+  color: #ff4757;
+}
+
+.dark .markdown-content ol ol ol li::before {
+  color: #cbd5e1;
+}
+
+.dark .markdown-content ol ol ol ol li::before {
+  color: #64748b;
+}
+
+.dark .markdown-content ul ul li::before {
+  color: #ff4757;
+}
+
+.dark .markdown-content ul ul ul li::before {
+  color: #cbd5e1;
+}
+
+.dark .markdown-content ul ul ul ul li::before {
+  color: #64748b;
 }
 
 /* 代码块样式将由CodeBlock组件处理 */
@@ -299,11 +499,6 @@
   border-radius: var(--radius-lg);
   margin: var(--spacing-lg) 0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  transition: transform var(--transition-slow);
-}
-
-.markdown-content img:hover {
-  transform: scale(1.02);
 }
 
 /* 分割线样式 */
@@ -319,6 +514,17 @@
 .markdown-content strong {
   color: var(--primary-color);
   font-weight: 700;
+}
+
+/* 深色模式下加粗文本使用通用文字颜色 */
+@media (prefers-color-scheme: dark) {
+  .markdown-content strong {
+    color: inherit;
+  }
+}
+
+.dark .markdown-content strong {
+  color: inherit;
 }
 
 .markdown-content em {
@@ -489,5 +695,29 @@
   .markdown-content ul,
   .markdown-content ol {
     padding-left: var(--spacing-lg);
+  }
+  
+  /* 防止内容水平溢出 */
+  .markdown-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .markdown-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  
+  .markdown-content pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  .markdown-content img {
+    max-width: 100%;
+    height: auto;
   }
 }

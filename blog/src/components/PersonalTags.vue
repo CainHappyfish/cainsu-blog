@@ -189,21 +189,23 @@ const selectCategory = (category: string) => {
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--border-light);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   cursor: pointer;
   transition: var(--transition-normal);
   font-weight: 500;
   color: var(--text-secondary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .filter-button:hover {
-  border-color: var(--primary-color);
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .filter-button.active {
@@ -241,18 +243,18 @@ const selectCategory = (category: string) => {
 
 .tag-item {
   position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(15px);
   border-radius: 15px;
   padding: 15px 25px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
   transform: scale(0.8) translateY(20px);
   animation: tagAppear 0.6s ease-out forwards;
   animation-delay: var(--delay);
-  border: 2px solid var(--border-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: visible;
 }
 
@@ -262,8 +264,10 @@ const selectCategory = (category: string) => {
 
 .tag-item:hover {
   transform: scale(1.05) translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color);
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .tag-content {
@@ -372,16 +376,21 @@ const selectCategory = (category: string) => {
 
 .stat-item {
   text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.85));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
   padding: 25px;
   border-radius: 15px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: var(--transition-normal);
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
 }
 
 .stat-item:hover {
   transform: translateY(-5px);
+  backdrop-filter: blur(25px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .stat-icon {

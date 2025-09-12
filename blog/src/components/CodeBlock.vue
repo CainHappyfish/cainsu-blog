@@ -428,6 +428,7 @@ const copyCode = async () => {
     border-radius: 0;
     border-left: none;
     border-right: none;
+    max-width: calc(100% - 20px);
   }
   
   .code-header {
