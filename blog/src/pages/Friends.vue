@@ -733,9 +733,23 @@ const openFriendLink = (url: string) => {
   .site-url {
     color: #ffffff !important;
   }
+  
+  .page-header h1 {
+    background: linear-gradient(135deg, #66AAFF, #FF88CC, #AADD66, #FFCC44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 .dark .site-url {
   color: #ffffff;
+}
+
+.dark .page-header h1 {
+  background: linear-gradient(135deg, #66AAFF, #FF88CC, #AADD66, #FFCC44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 </style>
