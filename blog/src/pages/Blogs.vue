@@ -328,6 +328,55 @@ onMounted(async () => {
   padding: var(--spacing-xl) var(--spacing-md);
 }
 
+/* 深色模式下的渐变文本样式 */
+:root.dark .section-title,
+:root.dark .sidebar-title,
+:root.dark .posts-title,
+:root.dark .empty-state h3 {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA, #C084FC) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.dark .section-title:hover,
+:root.dark .sidebar-title:hover,
+:root.dark .posts-title:hover {
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #A855F7) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.1);
+}
+
+:root.dark .empty-state h3:hover {
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #A855F7) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+:root.dark .post-title {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.dark .post-card:hover .post-title {
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #A855F7) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.1);
+}
+
 /* 加载状态 */
 .loading-container {
   display: flex;
@@ -481,20 +530,39 @@ onMounted(async () => {
   color: var(--text-secondary);
   font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
   text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
 .category-btn:hover {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-white);
-  transform: translateX(4px);
+  transform: translateX(6px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+}
+
+.category-btn:hover::before {
+  left: 0;
 }
 
 .category-btn.active {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-white);
   box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+  transform: translateX(2px);
 }
 
 .post-count {
@@ -574,19 +642,38 @@ onMounted(async () => {
   border-radius: var(--radius-xl);
   overflow: hidden;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out both;
+  position: relative;
+}
+
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .post-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px) scale(1.03);
   backdrop-filter: blur(25px);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(102, 126, 234, 0.2);
   border-color: rgba(255, 255, 255, 0.25);
+}
+
+.post-card:hover::before {
+  opacity: 1;
 }
 
 /* 文章图片 */
@@ -685,7 +772,7 @@ onMounted(async () => {
   padding: var(--spacing-xs) var(--spacing-md);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s ease;
   border: 2px solid var(--border-light);
   overflow: visible;
   color: var(--text-primary);
@@ -693,11 +780,29 @@ onMounted(async () => {
   font-weight: 600;
 }
 
+.tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
+  border-radius: 13px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
 .tag:hover {
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-color);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+  border-color: rgba(102, 126, 234, 0.4);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
+}
+
+.tag:hover::before {
+  opacity: 1;
 }
 
 .tag-glow {
@@ -904,6 +1009,24 @@ onMounted(async () => {
 .current-page {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+/* 深色模式下分页器当前页面文本渐变 */
+:root.dark .current-page {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.dark .current-page:hover {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .page-separator {

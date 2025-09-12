@@ -201,6 +201,32 @@ const loadBlogs = async () => {
   background-clip: text;
 }
 
+/* 深色模式下的渐变文本样式 */
+:root.dark .nav-link {
+  color: var(--text-secondary);
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0), rgba(167, 139, 250, 0));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.6s ease;
+}
+
+:root.dark .nav-link:hover,
+:root.dark .nav-link.active {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+  color: var(--text-primary);
+  transform: translateY(-1px) scale(1.02);
+}
+
+:root.dark .mobile-nav-link {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0), rgba(167, 139, 250, 0));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.6s ease;
+}
+
+:root.dark .mobile-nav-link:hover,
+:root.dark .mobile-nav-link.active {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+  color: var(--text-primary);
+  transform: translateX(4px) scale(1.02);
+}
+
 /* 桌面端菜单 */
 .desktop-menu {
   display: flex;
