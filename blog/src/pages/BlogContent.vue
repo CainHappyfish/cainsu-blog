@@ -200,12 +200,14 @@ const loadArticle = async () => {
 }
 
 // 生命周期
-onMounted(async () => {
-  await loadArticle()
-  
-  // 添加滚动监听
-  await nextTick()
-  window.addEventListener('scroll', handleScroll)
+onMounted(() => {
+  // 异步加载文章，不阻塞渲染
+  loadArticle().then(() => {
+    // 文章加载完成后添加滚动监听
+    nextTick(() => {
+      window.addEventListener('scroll', handleScroll)
+    })
+  })
 })
 
 // 清理

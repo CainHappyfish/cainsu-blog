@@ -39,6 +39,7 @@ const { isDarkMode, toggleTheme, initTheme } = useTheme()
 // 组件挂载时初始化主题
 onMounted(() => {
   initTheme()
+  // 异步加载博客数据，避免阻塞渲染
   loadBlogs()
 })
 

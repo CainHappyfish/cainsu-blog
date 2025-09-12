@@ -40,11 +40,14 @@ const loadBlogs = async () => {
 // 动画控制
 const isVisible = ref(false)
 
-onMounted(async () => {
-  await loadBlogs()
+onMounted(() => {
+  // 先启动页面动画，不阻塞渲染
   setTimeout(() => {
     isVisible.value = true
   }, 300)
+  
+  // 异步加载博客数据，不阻塞页面渲染
+  loadBlogs()
 })
 </script>
 

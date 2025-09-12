@@ -131,18 +131,26 @@ const getVisiblePages = () => {
 }
 
 // 生命周期
-onMounted(async () => {
+onMounted(() => {
+  // 先启动页面动画，不阻塞渲染
+  setTimeout(() => {
+    isVisible.value = true
+  }, 200)
+  
+  // 异步加载博客数据，不阻塞页面渲染
+  loadBlogPosts()
+})
+
+// 加载博客数据
+const loadBlogPosts = async () => {
   try {
     allPosts.value = await getAllBlogPosts()
-    setTimeout(() => {
-      isVisible.value = true
-    }, 200)
   } catch (error) {
     console.error('Failed to load blog posts:', error)
   } finally {
     loading.value = false
   }
-})
+}
 </script>
 
 <template>
