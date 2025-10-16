@@ -6,6 +6,7 @@ tags: ["qqBot", "X"]
 summary: "nsy 推文转发 bot 制作过程中踩的小坑"
 author: "破酥"
 readTime: "60min"
+cover: https://pic1.imgdb.cn/item/68effa7ec5157e1a88761cb6.jpg
 ---
 
 # 获取推文
@@ -202,3 +203,4 @@ class HelloPlugin(NcatBotPlugin):
 ```
 
 这里我们可以先把图片下载到本地，再用本地的图片转发即可。
+

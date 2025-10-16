@@ -73,6 +73,17 @@ const config = {
     blogs: [
       {
         id: 1,
+        title: 'nsy 推文转发 bot 踩坑实录',
+        image: 'https://pic1.imgdb.cn/item/68effa7ec5157e1a88761cb6.jpg',
+        link: 'https://blog.cainsu.site/#/blogs/X%E8%BD%AC%E5%8F%91bot%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95',
+        summary: '浅浅记录一下开发bot遇到的坑',
+        category: '小玩具',
+        publishDate: '2025-10-16',
+        readTime: '30 分钟',
+        isMain: false
+      },
+      {
+        id: 2,
         title: 'Vue 3 响应式原理',
         image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
         link: 'https://blog.cainsu.site/#/blog/Vue3-reactive',
@@ -80,10 +91,10 @@ const config = {
         category: '前端技术',
         publishDate: '2025-09-10',
         readTime: '60 分钟',
-        isMain: true
+        isMain: false
       },
       {
-        id: 2,
+        id: 3,
         title: 'grid-drag自定义布局制作',
         image: 'https://pic1.imgdb.cn/item/68c126d158cb8da5c8963eee.jpg',
         link: 'https://blog.cainsu.site/#/blog/grid-drag%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80%E5%88%B6%E4%BD%9C',
@@ -94,7 +105,7 @@ const config = {
         isMain: false
       },
       {
-        id: 3,
+        id: 4,
         title: 'Vue3 渲染器原理',
         image: 'https://pic1.imgdb.cn/item/68c0714658cb8da5c892c3b2.png',
         link: 'https://blog.cainsu.site/#/blog/Vue3%E6%B8%B2%E6%9F%93%E5%99%A8%E5%8E%9F%E7%90%86',

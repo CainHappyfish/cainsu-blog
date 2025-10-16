@@ -274,84 +274,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 深色模式样式 */
-@media (prefers-color-scheme: dark) {
-  .markdown-content {
-    color: #e2e8f0;
-  }
-  
-  .markdown-content h1,
-  .markdown-content h2,
-  .markdown-content h3 {
-    background: linear-gradient(135deg, #66AAFF, #4488DD, #2266BB);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .markdown-content h4,
-  .markdown-content h5,
-  .markdown-content h6 {
-    color: #cbd5e1;
-  }
-  
-  .markdown-content p {
-    color: #e2e8f0;
-  }
-  
-  .markdown-content ol li,
-  .markdown-content ul li {
-    color: #e2e8f0;
-  }
-  
-  .markdown-content blockquote p {
-    color: #cbd5e1;
-  }
-  
-  .markdown-content td {
-    color: #e2e8f0;
-  }
-  
-  .markdown-content del {
-    color: #64748b;
-  }
-  
-  .markdown-content kbd {
-    color: #f1f5f9;
-  }
-  
-  .markdown-content .footnote {
-    color: #64748b;
-  }
-  
-  .markdown-content code:not(pre code) {
-    color: #ff4757;
-  }
-  
-  .markdown-content ol ol li::before {
-    color: #ff4757;
-  }
-  
-  .markdown-content ol ol ol li::before {
-    color: #cbd5e1;
-  }
-  
-  .markdown-content ol ol ol ol li::before {
-    color: #64748b;
-  }
-  
-  .markdown-content ul ul li::before {
-    color: #ff4757;
-  }
-  
-  .markdown-content ul ul ul li::before {
-    color: #cbd5e1;
-  }
-  
-  .markdown-content ul ul ul ul li::before {
-    color: #64748b;
-  }
-}
+
 
 .dark .markdown-content {
   color: #e2e8f0;
@@ -473,6 +396,74 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   position: relative;
+/* 确保CodeBlock组件内的pre标签正常显示 */
+.code-block-container pre,
+.markdown-content td {
+  color: var(--text-primary);
+}
+
+/* 斑马纹效果 */
+.markdown-content tbody tr:nth-child(even) {
+  background: #b6755718;
+}
+
+.markdown-content tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.markdown-content tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 图片样式 */
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* 分割线样式 */
+.markdown-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-full);
+
+/* 表格样式 */
+.markdown-content table {
+.markdown-content strong {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+
+.dark .markdown-content strong {
+  color: inherit;
+
+.markdown-content th,
+  padding: var(--spacing-md);
+  color: var(--secondary-color);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.markdown-content th:last-child,
+.markdown-content td:last-child {
+  border-right: none;
+}
+
+.markdown-content th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
 }
 
 .markdown-content td {
@@ -523,8 +514,18 @@
   }
 }
 
+/* 深色模式下链接使用浅色 */
+.dark .markdown-content a {
+  color: #60a5fa !important; /* 浅蓝色 */
+}
+
+.dark .markdown-content a:hover {
+  color: #93c5fd !important; /* 更浅的蓝色 */
+}
+
+/* 深色模式下加粗文本使用浅色 */
 .dark .markdown-content strong {
-  color: inherit;
+  color: #e2e8f0 !important; /* 浅灰色 */
 }
 
 .markdown-content em {

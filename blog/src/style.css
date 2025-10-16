@@ -19,7 +19,6 @@
   /* 文字颜色 */
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
   --text-white: #ffffff;
   
   /* 背景颜色 */
@@ -45,7 +44,6 @@
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   
-  /* 间距 */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -78,8 +76,8 @@
 
 /* 暗色主题 */
 .dark {
-  --primary-color: #3344AA;
-  --primary-hover: #4455BB;
+  --primary-color: #60a5fa;
+  --primary-hover: #93c5fd;
   --secondary-color: #881188;
   --accent-color: #DD0088;
   --success-color: #00AABB;
@@ -88,10 +86,9 @@
   
   --text-primary: #DDDDFF;
   --text-secondary: #BBBBBB;
+  --text-primary: #DDDDFF;
+  --text-secondary: #BBBBBB;
   --text-muted: #999999;
-  --text-white: #ffffff;
-  
-  --bg-primary: #1a1a2e;
   --bg-secondary: #16213e;
   --bg-tertiary: #0f3460;
   --bg-dark: #0a0a0a;
