@@ -512,14 +512,14 @@ onBeforeUnmount(() => {
 
 /* 主要内容区域 */
 .main-content {
-  display: grid;
-  grid-template-columns: 250px 1fr;
+  display: flex;
   gap: var(--spacing-xl);
-  align-items: start;
+  align-items: flex-start;
 }
 
 /* 目录侧边栏 */
 .toc-sidebar {
+  flex: 0 0 260px;
   position: sticky;
   top: calc(var(--spacing-lg) + 60px);
 }
@@ -583,6 +583,8 @@ onBeforeUnmount(() => {
 
 /* 文章正文 */
 .article-body {
+  flex: 1 1 auto;
+  min-width: 0;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   backdrop-filter: blur(20px);
   border-radius: var(--radius-xl);
@@ -594,20 +596,24 @@ onBeforeUnmount(() => {
 /* 响应式设计 */
 @media (max-width: 1200px) {
   .main-content {
-    grid-template-columns: 200px 1fr;
     gap: var(--spacing-lg);
+  }
+
+  .toc-sidebar {
+    flex: 0 0 220px;
   }
 }
 
 @media (max-width: 1024px) {
   .main-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--spacing-lg);
   }
   
   .toc-sidebar {
     position: static;
     order: -1;
+    width: 100%;
   }
   
   .toc-container {
