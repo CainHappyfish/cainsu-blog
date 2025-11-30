@@ -660,6 +660,17 @@ const config = {
         tags: ['tju'],
         status: 'active',
         addTime: '2025-09-11'
+      },
+      {
+        id: 15,
+        name: 'CantSpeak',
+        description: 'I dont like speak',
+        url: 'https://cantsp3ak.com/',
+        avatar: 'https://pic1.imgdb.cn/item/692c6f6d1486afd2e4d1d6d3.jpg',
+        category: 'friend',
+        tags: ['uestc'],
+        status: 'active',
+        addTime: '2025-09-11'
       }
     ],
     
