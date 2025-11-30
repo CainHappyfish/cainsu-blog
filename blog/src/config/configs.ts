@@ -591,7 +591,7 @@ const config = {
         url: 'https://yhblogs.cn/',
         avatar: 'https://pic.imgdb.cn/item/6681281bd9c307b7e9f8f3ed.jpg',
         category: 'friend',
-        tags: ['frontend', 'uestc'],
+        tags: ['uestc'],
         status: 'active',
         addTime: '2025-09-11'
       },
