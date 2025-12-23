@@ -146,6 +146,135 @@ createRoot(document.getElementById('root')!).render(
   - **assets**：存放资源文件，如图片和字体。
   - **services/apis**：存放与外部 API 交互的服务。
 
-# 
+# 响应式
 
+不同于 Vue 的双向数据流，React 实现响应式的思想是单向数据流，输入数据变化时需要手动更新数据。要做到这一点，你需要在你的组件中添加 **state**：
+
+```tsx
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [error, setError] = useState('');
+const [isLoading, setIsLoading] = useState(false);
+```
+
+拿邮箱来说，react 在读取数据时使用 email ，而在需要更新数据时使用` setEmail`。这里忘说了，React 中想要使用响应式数据，不论是标签属性还是文本，只需要用大括号包起来就可以了。下面的代码重点看`value`和` onChange `属性：
+
+```tsx
+<div className="login-card-input-container">
+    <label className="login-card-label" htmlFor="email">邮箱</label>
+    <input 
+        className="login-card-input" 
+        type="email" 
+        id="email" 
+        name="email"
+        placeholder="请输入邮箱地址" 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        disabled={isLoading}
+        autoComplete="email"
+    />
+    </div>
+    <div className="login-card-input-container">
+        <label className="login-card-label" htmlFor="password">密码</label>
+        <input 
+            className="login-card-input" 
+            type="password" 
+            id="password" 
+            name="password"
+            placeholder="请输入密码" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            disabled={isLoading}
+            autoComplete="current-password"
+        />
+    </div>
+    <button 
+        className="login-card-button" 
+        type="submit"
+        disabled={isLoading}
+    >
+        {isLoading ? '登录中...' : '登录'}
+    </button>
+</form>
+```
+
+这里的 useState 在 React 中被称为 hook，也是 React 的核心内容。以 `use` 开头的函数被称为 **Hook**。`useState` 是 React 提供的一个内置 Hook。再添加一点细节，一个简单的登录页面就写完了。
+
+# 渲染列表
+
+这里我们需要利用 JavaScript 的特性，例如 [`for` 循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for) 和 [array 的 `map()` 函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 来渲染组件列表。这也很符合 React 的思想，React 组件就是一个个 JavaScript 函数。这里我们的例子结合父子组件传参来实现。比如我们在` App.tsx `中有这样的数据：
+
+```tsx
+const demos: Demo[] = [
+    {
+      title: '示例 1',
+      description: '这是一个简单的示例'
+    },
+    {
+      title: '示例 2',
+      description: '这是另一个示例'
+    },
+    {
+      title: '示例 3',
+      description: '第三个示例'
+    }
+];
+```
+
+你可以使用 JSX 的大括号把` demos `丢给 `DemoList` 。于是我们的展示列表可以这么写：
+
+```tsx
+import '../styles/demoList.css';
+
+interface Demo {
+    title: string;
+    description: string;
+}
+
+interface DemoListProps {
+    demos: Demo[];
+    userInfo?: {
+        email: string;
+        loginTime: string;
+    };
+}
+
+function DemoList({ demos, userInfo }: DemoListProps) {
+    return (
+        <div className="demo-list">
+            {userInfo && (
+                <div className="demo-list-header">
+                    <h2>欢迎回来！</h2>
+                    <div className="user-info">
+                        <p><strong>邮箱:</strong> {userInfo.email}</p>
+                        <p><strong>登录时间:</strong> {userInfo.loginTime}</p>
+                    </div>
+                </div>
+            )}
+            <div className="demo-list-title">
+                <h2>演示列表</h2>
+                <p className="demo-count">共 {demos.length} 个演示</p>
+            </div>
+            <div className="demo-items">
+                {demos.length === 0 ? (
+                    <div className="demo-empty">
+                        <p>暂无演示内容</p>
+                    </div>
+                ) : (
+                    demos.map((demo) => (
+                        <div className="demo-item" key={demo.title}>
+                            <h3 className="demo-item-title">{demo.title}</h3>
+                            <p className="demo-item-description">{demo.description}</p>
+                        </div>
+                    ))
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default DemoList;
+```
+
+你会发现我们只需要像平时使用 Map 一样给每一个数据写一个对应的 HTML 然后返回就行了。
 
