@@ -145,7 +145,7 @@ const onDragEnd = () => {
 
 拖曳结束时（鼠标触发开），注意这里不一定会触发`drop`，因为结束位置的元素不一定可放置或者不会响应`drop`事件。这里恢复卡片拖曳前的样式。
 
-### `dragover`
+### xxxxxxxxxx // 获取字母的 indexfunction getIndex(char: string) {  return char >= 'A' && char <= 'Z' ?   char.charCodeAt(0) - 'A'.charCodeAt(0) + 26:  char.charCodeAt(0) - 'a'.charCodeAt(0)}​function minWindow(s: string, t: string): string {    let result = ""​    // 用于统计 t 出现的字母    const hash = Array(52).fill(0)    // 用于统计 s 出现的字母    const map = Array(52).fill(0)​    // t中出现的字符数    let tCharNum = 0    for (let i = 0; i < t.length; i++) {        if (++hash[getIndex(t[i])] === 1) tCharNum++    }​    const len = s.length    for (let l = 0, r = 0; r < len; r++) {        // 获取字母 index        const right = getIndex(s[r]) ​        // 记录右侧字母出现次数        map[right]++        // 如果出现次数达到 t 中的出现次数，说明有一个字母已经满足条件，将字符数减1        if (map[right] === hash[right]) tCharNum--​        while (l < r) {            const left = getIndex(s[l])                        // 如果左指针指向的字母计数超过t中对应字母出现的次数，说明不是最短子串            // 且该字母计数减一时不小于 0            // 说明当前左指针可以移动作为新子串的开头            if (map[left] > hash[left] && --map[left] >= 0) l++            else break        }​        if (tCharNum === 0 && (!result || result.length > r - l + 1)) {            result = s.substring(l, r+1)            }​    }​    return result};tsx
 
 ```typescript
 const onDragOver = (event: DragEvent) => {
