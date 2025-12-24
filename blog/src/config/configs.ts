@@ -675,8 +675,8 @@ const config = {
       {
         id: 16,
         name: '楚棠瑜',
-        description: '普普通通的故事正在继续',
-        url: '要是人生是星露谷就好了',
+        description: '要是人生是星露谷就好了',
+        url: 'https://notion-next-dx9u.vercel.app/',
         avatar: 'https://pic1.imgdb.cn/item/694baab726657af64c6d0387.png',
         category: 'friend',
         tags: ['uestc'],
