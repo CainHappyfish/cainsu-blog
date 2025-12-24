@@ -670,7 +670,18 @@ const config = {
         category: 'friend',
         tags: ['uestc'],
         status: 'active',
-        addTime: '2025-09-11'
+        addTime: '2025-11-09'
+      },
+      {
+        id: 16,
+        name: '楚棠瑜',
+        description: '普普通通的故事正在继续',
+        url: '要是人生是星露谷就好了',
+        avatar: 'https://pic1.imgdb.cn/item/694baab726657af64c6d0387.png',
+        category: 'friend',
+        tags: ['uestc'],
+        status: 'active',
+        addTime: '2025-12-24'
       }
     ],
     
